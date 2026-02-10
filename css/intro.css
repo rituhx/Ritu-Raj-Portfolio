@@ -1,0 +1,134 @@
+.hero {
+  min-height: calc(100vh - 72px);
+  display: flex;
+  align-items: center;
+  padding: 3rem 2rem;
+}
+
+.hero-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin-bottom: 0.75rem;
+}
+
+.hero-title .accent {
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero-greeting {
+  font-size: 1.1rem;
+  color: var(--accent);
+  margin-bottom: 0.35rem;
+}
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+.hero-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.hero-pills span {
+  background: var(--bg-elevated);
+  color: var(--text-muted);
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  border: 1px solid var(--border);
+}
+
+.hero-tagline {
+  font-size: 1.35rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.hero-typewriter {
+  font-size: 1.35rem;
+  color: var(--text-muted);
+  margin-bottom: 1.75rem;
+  min-height: 3.5em;
+  max-width: 520px;
+}
+
+.typewriter-cursor {
+  display: inline-block;
+  color: var(--accent);
+  font-weight: 300;
+  animation: blink 0.8s step-end infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.hero-desc {
+  color: var(--text-muted);
+  margin-bottom: 1.75rem;
+  max-width: 420px;
+}
+
+.hero-image-wrap {
+  position: relative;
+  max-width: 380px;
+  margin-left: auto;
+}
+
+.hero-image-wrap::before {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, var(--accent) 0%, transparent 50%);
+  opacity: 0.2;
+  z-index: 0;
+}
+
+.hero-image {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--border);
+  position: relative;
+  z-index: 1;
+  object-fit: cover;
+  aspect-ratio: 1;
+  background: var(--bg-card);
+}
+
+@media (max-width: 768px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+  .hero-title {
+    font-size: 2.25rem;
+  }
+  .hero-desc {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero-image-wrap {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 280px;
+  }
+}

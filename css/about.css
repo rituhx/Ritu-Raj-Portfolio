@@ -1,0 +1,46 @@
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.about-card h2 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: var(--accent);
+}
+
+.about-card p {
+  color: var(--text-muted);
+  font-size: 0.98rem;
+}
+
+.about-approach-title {
+  font-size: 1.35rem;
+  font-weight: 600;
+  margin: 2rem 0 0.5rem;
+  color: var(--text);
+}
+.about-approach-desc {
+  color: var(--text-muted);
+  margin-bottom: 1.25rem;
+}
+.about-cta {
+  padding: 2rem;
+  text-align: center;
+  border: 1px solid rgba(125, 211, 252, 0.2);
+  box-shadow: var(--glow);
+}
+.about-cta-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+}
+.about-cta-desc {
+  color: var(--text-muted);
+  margin-bottom: 1.25rem;
+}
+.about-cta .btn { margin-top: 0.25rem; }

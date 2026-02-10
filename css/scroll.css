@@ -1,0 +1,26 @@
+/* Vertical scroll: scroll down and up through sections */
+
+.page-section {
+  min-height: 100vh;
+  padding-top: 72px;
+  padding-bottom: 2rem;
+}
+
+.page-section > main,
+.page-section > .panel-inner {
+  padding-top: 0;
+}
+
+.scroll-hint {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 50;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .scroll-hint { display: none; }
+}
