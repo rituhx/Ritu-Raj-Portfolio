@@ -3,7 +3,7 @@ Crafting clean, purposeful, and scalable digital solutions
 Welcome to my personal portfolio website. This platform reflects my journey as a Computer Science and Engineering student, where I present my skills, projects, and passion for building meaningful technology-driven solutions with a focus on clean code and modern design.
 
 Live Portfolio
-https://rituhx.github.io/Ritu-Raj-Portfolio/
+ https://rituhx.github.io/Ritu-Raj-Portfolio/
 
 Location
 Buxar, Bihar | Open to Remote Opportunities
