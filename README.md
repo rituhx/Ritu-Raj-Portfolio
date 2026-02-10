@@ -107,3 +107,18 @@ CONNECT WITH ME
 GitHub
 LinkedIn
 Email
+HOME  
+<img width="1904" height="888" alt="Screenshot 2026-02-10 113514" src="https://github.com/user-attachments/assets/4c08e3f9-5ed4-402a-a475-46cb123d33d6" />
+
+ABOUT ME
+<img width="1897" height="883" alt="Screenshot 2026-02-10 113549" src="https://github.com/user-attachments/assets/2de91636-804b-4809-afdd-2b8b8714935d" />
+
+PROJECT
+<img width="1916" height="865" alt="Screenshot 2026-02-10 113629" src="https://github.com/user-attachments/assets/a15020bf-87ad-4e87-b546-fb2f3b1e8000" />
+
+SKILLS
+<img width="1895" height="839" alt="Screenshot 2026-02-10 113642" src="https://github.com/user-attachments/assets/e2c1d4d4-1a7c-4e17-a80d-89d989fa99d1" />
+
+CONTACT ME 
+<img width="1897" height="822" alt="Screenshot 2026-02-10 113652" src="https://github.com/user-attachments/assets/13e71faf-34c1-44ba-81fa-b44a7e4cc621" />
+<img width="1906" height="887" alt="Screenshot 2026-02-10 113710" src="https://github.com/user-attachments/assets/8df1266a-b2d6-4b70-8965-913ac0a3bb45" />
