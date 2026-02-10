@@ -74,3 +74,7 @@ SKILLS
 CONTACT ME 
 <img width="1897" height="822" alt="Screenshot 2026-02-10 113652" src="https://github.com/user-attachments/assets/13e71faf-34c1-44ba-81fa-b44a7e4cc621" />
 <img width="1906" height="887" alt="Screenshot 2026-02-10 113710" src="https://github.com/user-attachments/assets/8df1266a-b2d6-4b70-8965-913ac0a3bb45" />
+
+
+#💬 Contact #📧 Email:ritu2903raj@gmail.com #🌐 Portfolio: https://rituhx.github.io/Ritu-Raj-Portfolio/  #💼 LinkedIn: https://www.linkedin.com/in/ritu-raj09/
+#🌟 Show Your Support If you like this project, please give it a ⭐ on GitHub — it motivates me to build more cool stuff!
