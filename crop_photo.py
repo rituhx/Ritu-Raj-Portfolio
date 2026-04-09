@@ -1,7 +1,7 @@
 """Crop profile photo to focus on the person (left/center), less fence and background."""
 from PIL import Image
 
-path = r"d:\OneDrive\Desktop\Hrithik Port\images\profile.png"
+path = r"d:\OneDrive\Desktop\Hrithik Port\images\Faguniya.jpeg"
 img = Image.open(path).convert("RGB")
 w, h = img.size
 
