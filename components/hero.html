@@ -59,13 +59,23 @@
       <figure class="hero-frame">
 
         <img
+          id="floating-project-btn"
           data-photo
           alt="Portrait of Ritu Raj"
           width="520"
           height="650"
+          role="button"
+          tabindex="0"
+          aria-label="See It in Action"
+          title="See It in Action"
         >
 
       </figure>
+
+      <p class="floating-project-click-text">
+        <span class="play-icon">▶</span>
+        See It in Action
+      </p>
 
     </div>
 
@@ -104,13 +114,87 @@
 
   <!-- SCROLL INDICATOR -->
   <a
-  class="hero-scroll"
-  href="#about"
-  aria-label="Scroll to About section"
->
-  <span class="mouse-scroll" aria-hidden="true">
-    <span class="mouse-wheel"></span>
-  </span>
-</a>
+    class="hero-scroll"
+    href="#about"
+    aria-label="Scroll to About section"
+  >
+    <span class="mouse-scroll" aria-hidden="true">
+      <span class="mouse-wheel"></span>
+    </span>
+  </a>
 
 </section>
+<!-- =====================================================
+     LATEST WORK VIDEO MODAL
+====================================================== -->
+
+<div
+  class="project-modal"
+  id="project-modal"
+  aria-hidden="true"
+>
+
+  <!-- BACKDROP -->
+  <div
+    class="project-modal-backdrop"
+    id="project-modal-backdrop"
+  ></div>
+
+
+  <!-- MODAL CONTENT -->
+  <div
+    class="project-modal-content"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="project-modal-title"
+  >
+
+    <!-- CLOSE BUTTON -->
+    <button
+      class="project-modal-close"
+      id="project-modal-close"
+      type="button"
+      aria-label="Close latest work"
+    >
+      ×
+    </button>
+
+
+    <!-- VIDEO SECTION -->
+    <div class="project-video-section">
+
+      <p class="project-modal-kicker">
+        LATEST WORK
+      </p>
+
+      <h2 id="project-modal-title">
+        My Latest Work
+      </h2>
+
+
+      <!-- VIDEO -->
+      <div class="project-video-wrapper">
+
+        <video
+          id="company-project-video"
+          controls
+          playsinline
+          preload="auto"
+        >
+
+          <source
+            src="/assets/video/company-project-demo.mp4"
+            type="video/mp4"
+          >
+
+          Your browser does not support the video tag.
+
+        </video>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

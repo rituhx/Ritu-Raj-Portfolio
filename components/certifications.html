@@ -1,25 +1,36 @@
-<section class="section" id="certifications">
+<section
+  class="section certifications-section"
+  id="certifications"
+>
   <div class="container">
 
-    <p class="section-kicker">
-      Credentials
-    </p>
+    <div class="certifications-header">
 
-    <h2 class="section-title">
-      Certifications &amp;
-      <span>learning</span>
-    </h2>
+      <div>
 
-    <p class="section-lead">
-      A collection of certifications and learning experiences
-      that reflect continuous growth and technical development.
-    </p>
+        <p class="section-kicker">
+          Credentials
+        </p>
+
+        <h2 class="section-title">
+          Certifications &
+          <span>learning</span>
+        </h2>
+
+        <p class="section-lead">
+          A collection of certifications and learning experiences
+          that reflect continuous growth and technical development.
+        </p>
+
+      </div>
+
+    </div>
 
 
-    <!-- =====================================================
+    <!-- =========================================
          FEATURED GRADUATION DEGREE
-         JavaScript will create the graduation card here.
-    ====================================================== -->
+         BIG HORIZONTAL CARD
+    ========================================== -->
 
     <div
       class="graduation-card"
@@ -27,10 +38,10 @@
     ></div>
 
 
-    <!-- =====================================================
-         CERTIFICATES
-         JavaScript automatically creates all certificate cards here.
-    ====================================================== -->
+    <!-- =========================================
+         4 CERTIFICATES
+         2 × 2 GRID
+    ========================================== -->
 
     <div
       class="certs-grid"
@@ -41,9 +52,9 @@
 </section>
 
 
-<!-- =====================================================
-     CERTIFICATE POPUP
-===================================================== -->
+<!-- =========================================
+     CERTIFICATE / DEGREE PREVIEW MODAL
+========================================= -->
 
 <div
   class="certificate-modal"
@@ -51,31 +62,25 @@
   aria-hidden="true"
 >
 
-  <!-- Dark background -->
-
   <div
     class="certificate-modal-backdrop"
     data-certificate-close
   ></div>
 
 
-  <!-- Popup -->
-
   <div
     class="certificate-modal-box"
     role="dialog"
     aria-modal="true"
-    aria-label="Certificate preview"
+    aria-labelledby="certificate-modal-title"
   >
-
-    <!-- Header -->
 
     <div class="certificate-modal-header">
 
       <div>
 
-        <span>
-          Certificate
+        <span class="certificate-modal-kicker">
+          Preview
         </span>
 
         <h3 id="certificate-modal-title">
@@ -85,21 +90,17 @@
       </div>
 
 
-      <!-- Close -->
-
       <button
         type="button"
         class="certificate-close"
         data-certificate-close
-        aria-label="Close certificate"
+        aria-label="Close preview"
       >
         ×
       </button>
 
     </div>
 
-
-    <!-- Certificate gets inserted here by JS -->
 
     <div
       class="certificate-modal-content"

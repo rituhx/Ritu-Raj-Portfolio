@@ -1,11 +1,26 @@
-import { applyProfile } from "./profile.js";
-import { renderProjects } from "./projects.js";
-import { renderAbout, renderSkills, renderExperience, renderCertifications } from "./skills.js";
-import { initNavigation } from "./navigation.js";
 import { initReveal } from "./animations.js";
 import { initContact } from "./contact.js";
 import { initGraduation } from "./graduation.js";
 import { initLifeVideo } from "./life-video.js";
+import { initNavigation } from "./navigation.js";
+
+/* NEW PROJECT FLOATING BUBBLE */
+import { initFloatingProject } from "./floating-project.js";
+
+import { applyProfile } from "./profile.js";
+import { renderProjects } from "./projects.js";
+
+import {
+  renderAbout,
+  renderCertifications,
+  renderExperience,
+  renderSkills
+} from "./skills.js";
+
+
+/* =========================================================
+   COMPONENTS / PARTIALS
+========================================================= */
 
 const PARTIALS = [
   ["slot-navbar", "components/navbar.html"],
@@ -19,61 +34,324 @@ const PARTIALS = [
   ["slot-life-video", "components/life-video.html"],
   ["slot-certifications", "components/certifications.html"],
   ["slot-contact", "components/contact.html"],
-  ["slot-footer", "components/footer.html"]
+  ["slot-footer", "components/footer.html"],
+  ["slot-floating-project", "components/floating-project.html"]
 ];
 
+
+/* =========================================================
+   LOAD HTML PARTIALS
+========================================================= */
+
 async function loadPartials() {
+
   await Promise.all(
     PARTIALS.map(async ([id, path]) => {
+
       const host = document.getElementById(id);
-      if (!host) return;
-      const res = await fetch(path);
-      if (!res.ok) throw new Error("Failed to load " + path);
-      host.innerHTML = await res.text();
+
+      if (!host) {
+        console.warn(`Slot not found: ${id}`);
+        return;
+      }
+
+      try {
+
+        const res = await fetch(path);
+
+        if (!res.ok) {
+          console.error(
+            `Failed to load ${path}. Status: ${res.status}`
+          );
+          return;
+        }
+
+        host.innerHTML = await res.text();
+
+      } catch (error) {
+
+        console.error(
+          `Error loading component ${path}:`,
+          error
+        );
+
+      }
+
     })
   );
+
 }
+
+
+/* =========================================================
+   THEME
+========================================================= */
 
 function initTheme() {
+
   const key = "portfolio-theme";
+
   const btn = document.getElementById("theme-toggle");
-  const apply = (theme) => {
-    document.documentElement.setAttribute("data-theme", theme === "light" ? "light" : "dark");
-    localStorage.setItem(key, theme === "light" ? "light" : "dark");
-  };
-  apply(localStorage.getItem(key) || "dark");
-  if (btn) {
-    btn.addEventListener("click", () => {
-      const next = document.documentElement.getAttribute("data-theme") === "light" ? "dark" : "light";
-      apply(next);
-    });
+
+
+  function apply(theme) {
+
+    const selectedTheme =
+      theme === "light"
+        ? "light"
+        : "dark";
+
+
+    document.documentElement.setAttribute(
+      "data-theme",
+      selectedTheme
+    );
+
+
+    localStorage.setItem(
+      key,
+      selectedTheme
+    );
+
   }
+
+
+  apply(
+    localStorage.getItem(key) || "dark"
+  );
+
+
+  if (btn) {
+
+    btn.addEventListener("click", () => {
+
+      const currentTheme =
+        document.documentElement.getAttribute(
+          "data-theme"
+        );
+
+
+      const nextTheme =
+        currentTheme === "light"
+          ? "dark"
+          : "light";
+
+
+      apply(nextTheme);
+
+    });
+
+  }
+
 }
+
+
+/* =========================================================
+   SAFE FUNCTION RUNNER
+========================================================= */
+
+function runSafely(name, callback) {
+
+  try {
+
+    callback();
+
+  } catch (error) {
+
+    console.error(
+      `Error in ${name}:`,
+      error
+    );
+
+  }
+
+}
+
+
+/* =========================================================
+   APPLICATION BOOT
+========================================================= */
 
 async function boot() {
+
+  /* =====================================================
+     LOAD ALL HTML COMPONENTS FIRST
+  ===================================================== */
+
   await loadPartials();
-  applyProfile(document);
-  renderAbout(document);
-  renderExperience(document);
-  renderSkills(document);
-  renderProjects(document);
-  initGraduation();
-  initLifeVideo();
-  renderCertifications(document);
-  initTheme();
-  initNavigation();
-  initReveal();
-  initContact();
-  const year = document.getElementById("year");
-  if (year) year.textContent = String(new Date().getFullYear());
-  if (window.location.hash) {
-    const target = document.querySelector(window.location.hash);
-    if (target) target.scrollIntoView();
+
+
+  /* =====================================================
+     PROFILE
+  ===================================================== */
+
+  runSafely(
+    "applyProfile",
+    () => applyProfile(document)
+  );
+
+
+  /* =====================================================
+     PAGE CONTENT
+  ===================================================== */
+
+  runSafely(
+    "renderAbout",
+    () => renderAbout(document)
+  );
+
+
+  runSafely(
+    "renderExperience",
+    () => renderExperience(document)
+  );
+
+
+  runSafely(
+    "renderSkills",
+    () => renderSkills(document)
+  );
+
+
+  runSafely(
+    "renderProjects",
+    () => renderProjects(document)
+  );
+
+
+  /* =====================================================
+     INTERACTIVE SECTIONS
+  ===================================================== */
+
+  runSafely(
+    "initGraduation",
+    () => initGraduation()
+  );
+
+
+  runSafely(
+    "initLifeVideo",
+    () => initLifeVideo()
+  );
+
+
+  /* =====================================================
+     NEW FLOATING PROJECT BUBBLE
+  ===================================================== */
+
+  runSafely(
+    "initFloatingProject",
+    () => initFloatingProject()
+  );
+
+
+  /* =====================================================
+     CERTIFICATIONS
+  ===================================================== */
+
+  runSafely(
+    "renderCertifications",
+    () => renderCertifications(document)
+  );
+
+
+  /* =====================================================
+     SITE FEATURES
+  ===================================================== */
+
+  runSafely(
+    "initTheme",
+    () => initTheme()
+  );
+
+
+  runSafely(
+    "initNavigation",
+    () => initNavigation()
+  );
+
+
+  runSafely(
+    "initReveal",
+    () => initReveal()
+  );
+
+
+  runSafely(
+    "initContact",
+    () => initContact()
+  );
+
+
+  /* =====================================================
+     FOOTER YEAR
+  ===================================================== */
+
+  const year =
+    document.getElementById("year");
+
+
+  if (year) {
+
+    year.textContent =
+      String(
+        new Date().getFullYear()
+      );
+
   }
+
+
+  /* =====================================================
+     OPEN SECTION FROM URL HASH
+  ===================================================== */
+
+  if (window.location.hash) {
+
+    try {
+
+      const target =
+        document.querySelector(
+          window.location.hash
+        );
+
+
+      if (target) {
+
+        target.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+
+      }
+
+    } catch (error) {
+
+      console.error(
+        "Error opening URL hash:",
+        error
+      );
+
+    }
+
+  }
+
+
+  console.log(
+    "Portfolio loaded successfully."
+  );
+
 }
 
-boot().catch((err) => {
-  console.error(err);
-  document.body.innerHTML =
-    '<p style="padding:2rem;color:#fff;font-family:sans-serif">This portfolio needs a local web server so components can load. Run <code>python -m http.server 5500</code> in the project folder, then open http://localhost:5500</p>';
+
+/* =========================================================
+   START APPLICATION
+========================================================= */
+
+boot().catch((error) => {
+
+  console.error(
+    "Portfolio startup error:",
+    error
+  );
+
 });

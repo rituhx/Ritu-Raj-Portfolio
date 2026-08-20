@@ -1,6 +1,8 @@
 .wib-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+
+  grid-template-columns: repeat(2, 1fr);
+
   gap: 0.9rem;
 }
 
@@ -10,17 +12,22 @@
 
 .wib-card h3 {
   font-size: 1rem;
+
   letter-spacing: -0.03em;
+
   margin-bottom: 0.45rem;
 }
 
 .wib-card p {
   color: var(--muted);
+
   font-size: 0.94rem;
 }
 
 @media (max-width: 800px) {
+
   .wib-grid {
     grid-template-columns: 1fr;
   }
+
 }
