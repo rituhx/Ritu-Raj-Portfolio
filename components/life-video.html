@@ -1,0 +1,28 @@
+<section class="section" id="life-video">
+  <div class="container">
+    <p class="section-kicker">Moments</p>
+    <h2 class="section-title">A Glimpse <span>Beyond Code</span></h2>
+    <p class="section-lead">A short look at the moments, experiences, and life beyond the screen.</p>
+    <div class="card video-card">
+      <div class="video-player-container">
+        <!-- If video does not load/exist, JS will replace this with a clean placeholder -->
+        <video id="personal-video" playsinline controls preload="metadata" aria-label="Personal life video player">
+          <source src="assets/video/life.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="video-placeholder" id="video-placeholder" hidden>
+          <div class="video-placeholder-inner">
+            <svg viewBox="0 0 24 24" width="48" height="48" aria-hidden="true" fill="currentColor"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4zM14 16H5V8h9v8z"/></svg>
+            <p>Add your video here</p>
+            <span>Place your video at assets/video/life.mp4</span>
+          </div>
+        </div>
+      </div>
+      <div class="video-info" id="video-meta-info">
+        <span class="video-badge">16:9 HD</span>
+        <span class="video-divider">·</span>
+        <span class="video-duration" id="video-duration-display">Loading duration...</span>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,111 @@
+<section class="section" id="certifications">
+  <div class="container">
+
+    <p class="section-kicker">
+      Credentials
+    </p>
+
+    <h2 class="section-title">
+      Certifications &amp;
+      <span>learning</span>
+    </h2>
+
+    <p class="section-lead">
+      A collection of certifications and learning experiences
+      that reflect continuous growth and technical development.
+    </p>
+
+
+    <!-- =====================================================
+         FEATURED GRADUATION DEGREE
+         JavaScript will create the graduation card here.
+    ====================================================== -->
+
+    <div
+      class="graduation-card"
+      id="graduation-card"
+    ></div>
+
+
+    <!-- =====================================================
+         CERTIFICATES
+         JavaScript automatically creates all certificate cards here.
+    ====================================================== -->
+
+    <div
+      class="certs-grid"
+      id="certs-grid"
+    ></div>
+
+  </div>
+</section>
+
+
+<!-- =====================================================
+     CERTIFICATE POPUP
+===================================================== -->
+
+<div
+  class="certificate-modal"
+  id="certificate-modal"
+  aria-hidden="true"
+>
+
+  <!-- Dark background -->
+
+  <div
+    class="certificate-modal-backdrop"
+    data-certificate-close
+  ></div>
+
+
+  <!-- Popup -->
+
+  <div
+    class="certificate-modal-box"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Certificate preview"
+  >
+
+    <!-- Header -->
+
+    <div class="certificate-modal-header">
+
+      <div>
+
+        <span>
+          Certificate
+        </span>
+
+        <h3 id="certificate-modal-title">
+          Certificate Preview
+        </h3>
+
+      </div>
+
+
+      <!-- Close -->
+
+      <button
+        type="button"
+        class="certificate-close"
+        data-certificate-close
+        aria-label="Close certificate"
+      >
+        ×
+      </button>
+
+    </div>
+
+
+    <!-- Certificate gets inserted here by JS -->
+
+    <div
+      class="certificate-modal-content"
+      id="certificate-modal-content"
+    ></div>
+
+  </div>
+
+</div>

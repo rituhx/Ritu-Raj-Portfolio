@@ -1,0 +1,41 @@
+@media (max-width: 1280px) {
+  .container,
+  .nav-inner {
+    width: min(var(--max), calc(100% - 2rem));
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 3.25rem 0;
+  }
+
+  .hero {
+    padding-top: 1.6rem;
+  }
+
+  .hero-actions {
+    width: 100%;
+  }
+
+  .hero-actions .btn {
+    flex: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .container,
+  .nav-inner {
+    width: calc(100% - 1.5rem);
+  }
+
+  .hero h1 {
+    font-size: 2.4rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .hero-actions .btn {
+    flex: 1 1 100%;
+  }
+}

@@ -1,0 +1,44 @@
+:root {
+  --bg: #07080c;
+  --bg-elevated: #0e1118;
+  --surface: #10141c;
+  --surface-hover: #151a24;
+  --text: #f4f6f8;
+  --muted: #93a0b5;
+  --accent: #8eb4ff;
+  --accent-2: #c4b5fd;
+  --accent-strong: #5b8cff;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.14);
+  --glow: 0 0 0 1px rgba(142, 180, 255, 0.12), 0 20px 50px rgba(0, 0, 0, 0.35);
+  --shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+  --radius: 12px;
+  --radius-lg: 18px;
+  --nav-h: 68px;
+  --max: 1120px;
+  --font: "Instrument Sans", "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, monospace;
+  --ease: 180ms cubic-bezier(0.22, 1, 0.36, 1);
+  --gradient: linear-gradient(135deg, #5b8cff 0%, #8b7cff 100%);
+  --gradient-text: linear-gradient(135deg, #c9dcff 0%, #b8a8ff 100%);
+  --nav-bg: rgba(7, 8, 12, 0.78);
+}
+
+[data-theme="light"] {
+  --bg: #f4f6fa;
+  --bg-elevated: #ffffff;
+  --surface: #ffffff;
+  --surface-hover: #eef2f8;
+  --text: #0e1320;
+  --muted: #5b6578;
+  --accent: #315de0;
+  --accent-2: #6d4fd6;
+  --accent-strong: #2548c7;
+  --border: rgba(14, 19, 32, 0.1);
+  --border-strong: rgba(14, 19, 32, 0.16);
+  --glow: 0 0 0 1px rgba(49, 93, 224, 0.12), 0 16px 40px rgba(15, 23, 42, 0.08);
+  --shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+  --gradient: linear-gradient(135deg, #315de0 0%, #6d4fd6 100%);
+  --gradient-text: linear-gradient(135deg, #2548c7 0%, #6d4fd6 100%);
+  --nav-bg: rgba(244, 246, 250, 0.86);
+}
