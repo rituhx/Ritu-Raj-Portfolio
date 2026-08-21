@@ -17,9 +17,9 @@ export const graduation = {
 
   cgpa: "7.29 / 10",
 
-  image: "images/certificates/graduation-degree.jpg",
+  image: "images/certificates/graduation-degree.jpeg",
 
-  url: "images/certificates/graduation-degree.jpg"
+  url: "images/certificates/graduation-degree.jpeg"
 };
 
 

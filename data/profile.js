@@ -48,9 +48,11 @@ export const profile = {
 
   resumeDownload: "Ritu_Raj_Resume.png",
 
-  photo: "assets/images/profile.jpeg",
+  /* MAIN HERO AVATAR */
+  photo: "assets/images/ritu-avatar.png",
 
-  photoFallback: "images/profile.jpeg",
+  /* BACKUP PHOTO */
+  photoFallback: "assets/images/profile.jpeg",
 
   siteTitle:
     "Ritu Raj | Software Engineer",
