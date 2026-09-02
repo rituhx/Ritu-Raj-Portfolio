@@ -35,23 +35,32 @@ function initTypewriter() {
 }
 
 function initReveal() {
-  const nodes = document.querySelectorAll(".section, .hero-grid");
+  const nodes = document.querySelectorAll(".section, .hero-grid, .reveal, .card");
+  
   if (!("IntersectionObserver" in window)) {
-    nodes.forEach((n) => n.classList.add("reveal"));
+    nodes.forEach((n) => {
+      n.classList.add("reveal", "is-revealed");
+    });
     return;
   }
+
   const io = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add("reveal");
+          entry.target.classList.add("is-revealed");
           io.unobserve(entry.target);
         }
       });
     },
-    { threshold: 0.12 }
+    { threshold: 0.08, rootMargin: "0px 0px -40px 0px" }
   );
-  nodes.forEach((n) => io.observe(n));
+
+  nodes.forEach((n) => {
+    n.classList.add("reveal");
+    io.observe(n);
+  });
 }
 
 export { initTypewriter, initReveal };
+

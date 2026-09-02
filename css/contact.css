@@ -1,72 +1,94 @@
-/* =========================================
-   CONTACT
-========================================= */
+/* =========================================================
+   CONTACT SECTION & LOCATION MAP (CINEMATIC TECH)
+========================================================= */
+
+.contact-section {
+  position: relative;
+}
 
 .contact-grid {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 1rem;
+  grid-template-columns: minmax(0, 1.15fr) minmax(340px, 0.85fr);
+  gap: 1.75rem;
+  align-items: start;
 }
 
 .contact-form,
 .contact-aside {
-  padding: 1.4rem;
+  padding: 2.25rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card);
 }
 
 .contact-form h3,
 .contact-aside h3 {
-  margin-bottom: 1rem;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 1.25rem;
 }
 
 .form-row {
-  display: grid;
-  gap: 0.35rem;
-  margin-bottom: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  margin-bottom: 1.15rem;
 }
 
 .form-row label {
-  font-size: 0.82rem;
-  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
 }
 
 .req {
-  color: var(--accent);
+  color: var(--accent-cyan-light);
 }
 
 .contact-form input,
 .contact-form textarea {
   width: 100%;
-  padding: 0.8rem 0.9rem;
-  border-radius: 10px;
+  padding: 0.85rem 1.1rem;
+  border-radius: var(--radius-sm);
   border: 1px solid var(--border);
   background: var(--bg-elevated);
   color: var(--text);
+  font-size: 0.95rem;
   outline: none;
   transition:
-    border-color 0.25s ease,
-    box-shadow 0.25s ease,
-    transform 0.2s ease;
+    border-color 0.25s var(--ease),
+    box-shadow 0.25s var(--ease),
+    background 0.25s var(--ease);
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(142, 180, 255, 0.08);
+  border-color: var(--accent-cyan-light);
+  background: var(--surface);
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15), 0 0 20px rgba(56, 189, 248, 0.1);
 }
 
 .contact-form textarea {
   resize: vertical;
-  min-height: 130px;
+  min-height: 140px;
 }
 
 .contact-sent {
   display: none;
-  margin-bottom: 1rem;
-  padding: 0.75rem 0.9rem;
-  border-radius: 10px;
+  margin-bottom: 1.5rem;
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-sm);
   border: 1px solid rgba(52, 211, 153, 0.35);
   background: rgba(16, 185, 129, 0.12);
   color: #6ee7b7;
+  font-family: var(--mono);
+  font-size: 0.88rem;
 }
 
 [data-theme="light"] .contact-sent {
@@ -78,103 +100,103 @@
 .contact-item {
   display: flex;
   flex-direction: column;
-  gap: 0.15rem;
-  padding: 0.75rem 0;
-  border-bottom: 1px solid var(--border);
+  gap: 0.2rem;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--border-subtle);
   text-decoration: none;
-  transition:
-    transform 0.25s ease,
-    color 0.25s ease;
+  transition: transform 0.25s var(--ease);
 }
 
 .contact-item:hover {
-  transform: translateX(3px);
+  transform: translateX(4px);
 }
 
 .contact-item span {
-  color: var(--muted);
-  font-size: 0.8rem;
+  font-family: var(--mono);
+  color: var(--accent-cyan-light);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
 .contact-item strong {
   color: var(--text);
+  font-size: 0.98rem;
+  font-weight: 600;
 }
 
 .social-row {
   display: flex;
-  gap: 0.55rem;
-  margin-top: 1rem;
+  gap: 0.65rem;
+  margin-top: 1.25rem;
 }
 
 .social-btn {
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   display: grid;
   place-items: center;
-  border-radius: 10px;
+  border-radius: var(--radius-sm);
   border: 1px solid var(--border);
   background: var(--bg-elevated);
-  color: var(--text);
+  color: var(--text-muted);
   text-decoration: none;
   cursor: pointer;
   transition:
     transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-    border-color 0.3s ease,
-    color 0.3s ease,
-    box-shadow 0.3s ease;
+    border-color 0.25s var(--ease),
+    color 0.25s var(--ease),
+    box-shadow 0.25s var(--ease),
+    background 0.25s var(--ease);
 }
 
 .social-btn:hover {
-  transform: translateY(-4px) scale(1.04);
-  border-color: var(--accent);
-  color: var(--accent);
-  box-shadow: 0 10px 25px rgba(91, 140, 255, 0.14);
+  transform: translateY(-3px) scale(1.05);
+  border-color: var(--accent-cyan-light);
+  color: #ffffff;
+  background: rgba(56, 189, 248, 0.12);
+  box-shadow: 0 10px 25px rgba(56, 189, 248, 0.2);
 }
 
 .social-btn:active {
-  transform: scale(0.94);
+  transform: scale(0.96);
 }
 
-
-/* =========================================
-   LOCATION MAP
-========================================= */
+/* =========================================================
+   LOCATION MAP PREVIEW
+========================================================= */
 
 .map-section {
-  margin-top: 1.25rem;
-  padding-top: 1.25rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
   border-top: 1px solid var(--border);
 }
 
 .contact-map {
   position: relative;
   width: 100%;
-  height: 180px;
+  height: 190px;
   padding: 0;
   border: 1px solid var(--border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-lg);
   background: var(--bg-elevated);
   overflow: hidden;
   cursor: pointer;
   text-align: left;
   color: inherit;
-
   transition:
     transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-    border-color 0.35s ease,
-    box-shadow 0.35s ease;
+    border-color 0.35s var(--ease),
+    box-shadow 0.35s var(--ease);
 }
 
 .contact-map:hover {
   transform: translateY(-3px);
-  border-color: var(--accent);
+  border-color: var(--accent-cyan-light);
   box-shadow:
-    0 16px 35px rgba(0, 0, 0, 0.16),
-    0 0 0 1px rgba(142, 180, 255, 0.06);
-}
-
-.contact-map:active {
-  transform: scale(0.99);
+    0 16px 35px rgba(0, 0, 0, 0.5),
+    0 0 25px rgba(56, 189, 248, 0.2);
 }
 
 .contact-map svg {
@@ -183,40 +205,34 @@
   width: 100%;
   height: 100%;
   display: block;
-
   transform: scale(2.3) translate(-17%, -6%);
   transform-origin: center center;
-
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .contact-map:hover svg {
-  transform: scale(2.42) translate(-17%, -6%);
+  transform: scale(2.45) translate(-17%, -6%);
 }
 
 .contact-map path.land {
   fill: var(--border-strong) !important;
   stroke: var(--bg-elevated) !important;
   stroke-width: 0.5px !important;
-  transition: fill 0.25s ease;
+  transition: fill 0.25s var(--ease);
 }
 
 .contact-map path.land:hover {
-  fill: rgba(142, 180, 255, 0.3) !important;
+  fill: rgba(56, 189, 248, 0.25) !important;
 }
 
 .contact-map path#IN {
-  fill: rgba(142, 180, 255, 0.28) !important;
-  stroke: var(--accent) !important;
+  fill: rgba(56, 189, 248, 0.28) !important;
+  stroke: var(--accent-cyan-light) !important;
   stroke-width: 1px !important;
 }
 
 [data-theme="light"] .contact-map path#IN {
-  fill: rgba(49, 93, 224, 0.16) !important;
-}
-
-[data-theme="light"] .contact-map path.land:hover {
-  fill: rgba(49, 93, 224, 0.28) !important;
+  fill: rgba(2, 132, 199, 0.18) !important;
 }
 
 .map-placeholder {
@@ -224,7 +240,7 @@
   inset: 0;
   display: grid;
   place-items: center;
-  color: var(--muted);
+  color: var(--text-muted);
   font-size: 0.8rem;
   z-index: 2;
 }
@@ -232,26 +248,22 @@
 .map-open-hint {
   position: absolute;
   right: 12px;
-  bottom: 10px;
+  bottom: 12px;
   z-index: 5;
-
-  padding: 0.42rem 0.65rem;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 7px;
-
-  background: rgba(5, 8, 15, 0.78);
-  color: #fff;
-
+  padding: 0.4rem 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-xs);
+  background: rgba(6, 8, 13, 0.85);
+  backdrop-filter: blur(8px);
+  color: #ffffff;
   font-family: var(--mono);
-  font-size: 0.65rem;
-
+  font-size: 0.68rem;
   opacity: 0;
   transform: translateY(6px);
   pointer-events: none;
-
   transition:
-    opacity 0.3s ease,
-    transform 0.3s ease;
+    opacity 0.3s var(--ease),
+    transform 0.3s var(--ease);
 }
 
 .contact-map:hover .map-open-hint {
@@ -262,176 +274,154 @@
 .map-label {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  margin-top: 0.65rem;
-  font-size: 0.82rem;
+  gap: 0.6rem;
+  margin-top: 0.85rem;
+  font-size: 0.86rem;
   font-weight: 500;
   color: var(--text);
 }
 
 .map-marker-dot-icon {
-  width: 8px;
-  height: 8px;
-  flex: 0 0 8px;
+  width: 9px;
+  height: 9px;
+  flex: 0 0 9px;
   border-radius: 50%;
-  background: var(--accent);
-
+  background: var(--accent-cyan-light);
   box-shadow:
-    0 0 5px var(--accent),
-    0 0 12px rgba(142, 180, 255, 0.35);
-
+    0 0 5px var(--accent-cyan-light),
+    0 0 12px rgba(56, 189, 248, 0.5);
   animation: markerDotPulse 2s infinite alternate;
 }
 
 @keyframes markerDotPulse {
   0% {
-    opacity: 0.55;
-    box-shadow: 0 0 2px var(--accent);
+    opacity: 0.6;
+    box-shadow: 0 0 3px var(--accent-cyan-light);
   }
-
   100% {
     opacity: 1;
     box-shadow:
-      0 0 8px var(--accent),
-      0 0 15px rgba(142, 180, 255, 0.4);
+      0 0 10px var(--accent-cyan-light),
+      0 0 20px rgba(56, 189, 248, 0.6);
   }
 }
 
-
-/* =========================================
+/* =========================================================
    FULLSCREEN MAP MODAL
-========================================= */
+========================================================= */
 
 .map-modal {
   position: fixed;
   inset: 0;
   z-index: 99999;
-
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
-
-  padding: 2rem;
+  padding: 1.5rem;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 0.35s var(--ease),
+    visibility 0.35s var(--ease);
 }
 
 .map-modal.is-open {
-  display: flex;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 
 .map-modal-backdrop {
   position: absolute;
   inset: 0;
-
-  background: rgba(3, 7, 15, 0.76);
-
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-
-  animation: mapBackdropIn 0.3s ease;
+  background: rgba(3, 5, 9, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }
 
 .map-modal-card {
   position: relative;
   z-index: 2;
-
-  width: min(1050px, 94vw);
-
+  width: min(1080px, 95vw);
   overflow: hidden;
-
-  border: 1px solid var(--border);
-  border-radius: 20px;
-
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-xl);
   background: var(--surface);
-
   box-shadow:
-    0 35px 100px rgba(0, 0, 0, 0.42),
-    0 0 0 1px rgba(255, 255, 255, 0.02);
+    0 35px 100px rgba(0, 0, 0, 0.85),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+  transform: scale(0.95);
+  transition: transform 0.35s var(--ease);
+}
 
-  animation:
-    mapModalIn 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+.map-modal.is-open .map-modal-card {
+  transform: scale(1);
 }
 
 .map-close {
   position: absolute;
   z-index: 10;
-
   top: 15px;
   right: 15px;
-
   width: 40px;
   height: 40px;
-
   display: grid;
   place-items: center;
-
   border: 1px solid var(--border);
   border-radius: 50%;
-
   background: var(--bg-elevated);
-  color: var(--text);
-
+  color: var(--text-muted);
   font-size: 1.45rem;
   line-height: 1;
-
   cursor: pointer;
-
   transition:
-    transform 0.3s ease,
-    border-color 0.3s ease,
-    color 0.3s ease,
-    background 0.3s ease;
+    transform 0.3s var(--ease),
+    border-color 0.3s var(--ease),
+    color 0.3s var(--ease);
 }
 
 .map-close:hover {
   transform: rotate(90deg) scale(1.08);
-  border-color: var(--accent);
-  color: var(--accent);
-  background: var(--surface);
+  border-color: var(--accent-cyan-light);
+  color: #ffffff;
 }
 
 .map-modal-header {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
-
-  padding: 1.35rem 1.5rem;
-
+  padding: 1.5rem 1.75rem;
   border-bottom: 1px solid var(--border);
 }
 
 .map-modal-header span {
   font-family: var(--mono);
-  font-size: 0.65rem;
-  letter-spacing: 0.16em;
-  color: var(--accent);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  color: var(--accent-cyan-light);
 }
 
 .map-modal-header strong {
+  font-family: var(--font-display);
   color: var(--text);
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   letter-spacing: -0.03em;
 }
 
 .map-modal-header small {
-  color: var(--muted);
-  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-size: 0.85rem;
 }
 
 .map-large {
   position: relative;
-
   width: 100%;
   height: min(65vh, 600px);
   min-height: 420px;
-
   overflow: hidden;
-
   background:
-    radial-gradient(
-      circle at 50% 45%,
-      rgba(91, 140, 255, 0.055),
-      transparent 45%
-    ),
+    radial-gradient(circle at 50% 45%, rgba(56, 189, 248, 0.08), transparent 50%),
     var(--bg-elevated);
 }
 
@@ -439,9 +429,7 @@
   width: 100%;
   height: 100%;
   display: block;
-
-  transition:
-    transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .map-large path.land {
@@ -451,27 +439,24 @@
 }
 
 .map-large path#IN {
-  fill: rgba(142, 180, 255, 0.3) !important;
-  stroke: var(--accent) !important;
+  fill: rgba(56, 189, 248, 0.28) !important;
+  stroke: var(--accent-cyan-light) !important;
   stroke-width: 1.2px !important;
 }
 
 [data-theme="light"] .map-large path#IN {
-  fill: rgba(49, 93, 224, 0.18) !important;
+  fill: rgba(2, 132, 199, 0.18) !important;
 }
 
-
-/* =========================================
-   BUXAR MARKER
-========================================= */
+/* =========================================================
+   BUXAR PIN MARKER
+========================================================= */
 
 .map-marker-dot {
-  fill: var(--accent);
+  fill: var(--accent-cyan-light);
   stroke: #ffffff;
   stroke-width: 1.5px;
-
-  filter:
-    drop-shadow(0 0 5px var(--accent));
+  filter: drop-shadow(0 0 6px var(--accent-cyan-light));
 }
 
 [data-theme="light"] .map-marker-dot {
@@ -479,12 +464,10 @@
 }
 
 .map-marker-pulse {
-  fill: var(--accent);
-  opacity: 0.42;
-
+  fill: var(--accent-cyan-light);
+  opacity: 0.5;
   transform-box: fill-box;
   transform-origin: center;
-
   animation: mapPulse 1.8s infinite ease-out;
 }
 
@@ -493,77 +476,42 @@
     transform: scale(0.5);
     opacity: 0.85;
   }
-
   100% {
     transform: scale(4);
     opacity: 0;
   }
 }
 
-
-/* =========================================
+/* =========================================================
    MAP FOOTER
-========================================= */
+========================================================= */
 
 .map-location-footer {
   display: flex;
   align-items: center;
-  gap: 0.55rem;
-
-  padding: 0.9rem 1.25rem;
-
+  gap: 0.65rem;
+  padding: 1rem 1.75rem;
   border-top: 1px solid var(--border);
-
   color: var(--text);
-  font-size: 0.84rem;
+  font-family: var(--mono);
+  font-size: 0.85rem;
 }
 
+/* =========================================================
+   RESPONSIVE BREAKPOINTS
+========================================================= */
 
-/* =========================================
-   MODAL ANIMATIONS
-========================================= */
-
-@keyframes mapModalIn {
-  from {
-    opacity: 0;
-    transform:
-      translateY(25px)
-      scale(0.96);
-  }
-
-  to {
-    opacity: 1;
-    transform:
-      translateY(0)
-      scale(1);
-  }
-}
-
-@keyframes mapBackdropIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-
-/* =========================================
-   RESPONSIVE
-========================================= */
-
-@media (max-width: 800px) {
+@media (max-width: 860px) {
   .contact-grid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 }
 
 @media (max-width: 640px) {
   .contact-form,
   .contact-aside {
-    padding: 1.1rem;
+    padding: 1.5rem;
   }
 
   .contact-map {
@@ -571,52 +519,19 @@
   }
 
   .map-modal {
-    padding: 0.7rem;
+    padding: 0.75rem;
   }
 
   .map-modal-card {
-    width: 100%;
-    border-radius: 16px;
+    border-radius: var(--radius-lg);
   }
 
   .map-modal-header {
-    padding: 1.1rem;
-  }
-
-  .map-modal-header strong {
-    font-size: 1.1rem;
+    padding: 1.15rem;
   }
 
   .map-large {
-    height: 62vh;
-    min-height: 350px;
+    height: 55vh;
+    min-height: 320px;
   }
-
-  .map-close {
-    width: 36px;
-    height: 36px;
-    top: 11px;
-    right: 11px;
-  }
-
-  .map-location-footer {
-    padding: 0.8rem 1rem;
-  }
-}
-
-
-/* =========================================
-   REDUCED MOTION
-========================================= */
-
-@media (prefers-reduced-motion: reduce) {
-  .map-marker-dot-icon,
-  .map-marker-pulse,
-  .map-modal-card,
-  .map-modal-backdrop,
-  .contact-map,
-  .contact-map svg {
-    animation: none !important;
-    transition: none !important;
-  }
-}
+}

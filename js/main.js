@@ -3,6 +3,7 @@ import { initContact } from "./contact.js";
 import { initGraduation } from "./graduation.js";
 import { initLifeVideo } from "./life-video.js";
 import { initNavigation } from "./navigation.js";
+import { initHeroMotion } from "./hero-motion.js";
 
 /* NEW PROJECT FLOATING BUBBLE */
 import { initFloatingProject } from "./floating-project.js";
@@ -280,6 +281,12 @@ async function boot() {
   runSafely(
     "initContact",
     () => initContact()
+  );
+
+
+  runSafely(
+    "initHeroMotion",
+    () => initHeroMotion()
   );
 
 

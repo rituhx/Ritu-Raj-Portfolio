@@ -1,163 +1,204 @@
+/* =========================================================
+   ABOUT & CURRENT FOCUS (EDITORIAL ARCHITECTURE)
+========================================================= */
+
+.about-section {
+  position: relative;
+}
+
 .about-grid {
   display: grid;
-
-  grid-template-columns: 1.4fr 0.8fr;
-
-  gap: 1.25rem;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: 1.75rem;
+  align-items: start;
 }
 
-.about-copy {
-  padding: 1.25rem 1.35rem;
+/* =========================================================
+   PRIMARY BIO & CURRENT FOCUS COLUMN
+========================================================= */
 
+.about-primary-col {
   display: flex;
-
   flex-direction: column;
+  gap: 1.75rem;
 }
 
-#about-copy p + p {
-  margin-top: 0.9rem;
+/* Bio Card */
+.about-bio-card {
+  padding: 2.25rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
 }
 
-#about-copy p {
-  color: var(--muted);
+.about-card-header {
+  margin-bottom: 1.25rem;
 }
 
-/* =========================================
-   CURRENT FOCUS
-========================================= */
-
-.current-focus {
-  margin-top: auto;
-
-  padding-top: 1.25rem;
-
-  border-top: 1px solid var(--border);
-}
-
-.current-focus-header {
-  display: flex;
-
-  align-items: center;
-
-  gap: 0.55rem;
-
-  margin-bottom: 0.65rem;
-
-  color: var(--accent);
-
+.mono-label {
   font-family: var(--mono);
-
-  font-size: 0.68rem;
-
+  font-size: 0.75rem;
   font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--accent-cyan-light);
+}
 
+.about-bio-text p {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.75;
+  margin-bottom: 1.25rem;
+}
+
+.about-bio-text p:last-child {
+  margin-bottom: 0;
+}
+
+/* Featured Focus: SFE Vehicle Reminder ERP */
+.current-focus-card {
+  padding: 2.25rem;
+  background: linear-gradient(145deg, rgba(16, 21, 32, 0.95) 0%, rgba(12, 16, 26, 0.98) 100%);
+  border: 1px solid var(--border-accent);
+  box-shadow:
+    0 20px 45px -10px rgba(0, 0, 0, 0.6),
+    0 0 25px rgba(59, 130, 246, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.current-focus-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gradient-accent);
+}
+
+.current-focus-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 700;
   letter-spacing: 0.1em;
-
-  text-transform: uppercase;
+  color: var(--accent-cyan-light);
+  margin-bottom: 1.25rem;
+  padding: 0.35rem 0.8rem;
+  border-radius: var(--radius-full);
+  background: rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.2);
 }
 
-.current-focus-dot {
+.current-focus-pulse {
   width: 7px;
-
   height: 7px;
-
-  flex-shrink: 0;
-
   border-radius: 50%;
-
-  background: var(--accent);
-
-  box-shadow: 0 0 12px var(--accent);
+  background: var(--accent-cyan-light);
+  box-shadow: 0 0 8px var(--accent-cyan-light);
+  animation: navDotPulse 2s infinite;
 }
 
-.current-focus h3 {
-  margin: 0 0 0.75rem;
+.current-focus-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.45rem, 2.5vw, 1.85rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  margin: 0 0 0.35rem;
+}
 
-  font-size: 1.15rem;
-
-  letter-spacing: -0.025em;
+.current-focus-subtitle {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--accent-cyan-light);
+  margin-bottom: 1.25rem;
 }
 
 .current-focus-tags {
   display: flex;
-
   flex-wrap: wrap;
-
   gap: 0.5rem;
-
-  margin-bottom: 0.8rem;
+  margin-bottom: 1.25rem;
 }
 
-.current-focus-tags span {
-  padding: 0.38rem 0.65rem;
-
-  border: 1px solid var(--border);
-
-  border-radius: 999px;
-
-  background: rgba(255, 255, 255, 0.03);
-
-  color: var(--accent);
-
-  font-family: var(--mono);
-
-  font-size: 0.7rem;
-}
-
-.current-focus p {
+.current-focus-desc {
+  color: var(--text-muted);
+  font-size: 0.98rem;
+  line-height: 1.7;
   margin: 0;
+}
 
-  color: var(--muted);
+/* =========================================================
+   RIGHT / ARCHITECTURAL PILLARS COLUMN
+========================================================= */
 
-  font-size: 0.9rem;
+.about-pillars-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
 
+.pillar-card {
+  padding: 1.75rem 2rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  transition:
+    transform 0.3s var(--ease),
+    border-color 0.3s var(--ease),
+    box-shadow 0.3s var(--ease),
+    background 0.3s var(--ease);
+}
+
+.pillar-card:hover {
+  transform: translateY(-3px) translateX(3px);
+  border-color: var(--border-accent);
+  background: var(--surface-hover);
+  box-shadow: var(--shadow-elevated);
+}
+
+.pillar-number {
+  font-family: var(--mono);
+  font-size: 1.4rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--accent-cyan-light);
+  opacity: 0.8;
+  padding-top: 0.15rem;
+}
+
+.pillar-content h3 {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin: 0 0 0.5rem;
+}
+
+.pillar-content p {
+  color: var(--text-muted);
+  font-size: 0.94rem;
   line-height: 1.65;
+  margin: 0;
 }
 
-/* =========================================
-   RIGHT SIDE
-========================================= */
+/* =========================================================
+   RESPONSIVE BREAKPOINTS
+========================================================= */
 
-.about-points {
-  display: grid;
-
-  grid-template-rows: repeat(3, 1fr);
-
-  gap: 0.9rem;
-}
-
-.about-points article {
-  padding: 1.15rem 1.2rem;
-}
-
-.about-points h3 {
-  font-size: 0.95rem;
-
-  margin-bottom: 0.3rem;
-}
-
-.about-points p {
-  color: var(--muted);
-
-  font-size: 0.92rem;
-}
-
-/* =========================================
-   MOBILE
-========================================= */
-
-@media (max-width: 800px) {
-
+@media (max-width: 960px) {
   .about-grid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 
-  .about-copy {
-    min-height: auto;
+  .about-bio-card,
+  .current-focus-card {
+    padding: 1.75rem;
   }
-
-  .current-focus {
-    margin-top: 1.5rem;
-  }
-
-}
+}

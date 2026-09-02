@@ -1,81 +1,88 @@
-<section class="section" id="about">
+<section class="section about-section" id="about">
   <div class="container">
 
-    <p class="section-kicker">About</p>
-
-    <h2 class="section-title">
-      Engineering <span>profile</span>
-    </h2>
-
-    <p class="section-lead">
-      Full-stack ERP systems, Android development, and real-time cloud applications.
-    </p>
+    <div class="section-header">
+      <div class="section-kicker">
+        <span>01</span>
+        <span>/</span>
+        <span>About</span>
+      </div>
+      <h2 class="section-title">
+        Engineering <span>Profile</span>
+      </h2>
+      <p class="section-lead">
+        Full-stack ERP systems, Android development, and practical real-time cloud applications.
+      </p>
+    </div>
 
     <div class="about-grid">
 
-      <!-- LEFT SIDE -->
-      <div class="card about-copy">
-
-        <!-- Profile text comes from data/profile.js -->
-        <div id="about-copy"></div>
-
-        <!-- Current company project -->
-        <div class="current-focus">
-
-          <div class="current-focus-header">
-            <span class="current-focus-dot"></span>
-            <span>Current Focus</span>
+      <!-- LEFT COLUMN: Bio & Featured Production System -->
+      <div class="about-primary-col">
+        <div class="card about-bio-card">
+          <div class="about-card-header">
+            <span class="mono-label">// SYSTEM PHILOSOPHY</span>
           </div>
-
-          <h3>SFE Vehicle Reminder ERP</h3>
-
-          <div class="current-focus-tags">
-            <span>Android App</span>
-            <span>Web Admin Panel</span>
-            <span>Real-time Sync</span>
-          </div>
-
-          <p>
-            Building a practical vehicle management system for Sharma
-            Fabricators and Erectors, focused on reminders, documents,
-            maintenance, and real-time business operations.
-          </p>
-
+          <!-- Profile text injected from data/profile.js -->
+          <div class="about-bio-text" id="about-copy"></div>
         </div>
 
+        <!-- Featured Focus: SFE Vehicle Reminder ERP -->
+        <div class="card current-focus-card">
+          <div class="current-focus-badge">
+            <span class="current-focus-pulse"></span>
+            <span>CURRENT FOCUS &amp; PRODUCTION SYSTEM</span>
+          </div>
+
+          <div class="current-focus-body">
+            <h3 class="current-focus-title">SFE Vehicle Reminder ERP</h3>
+            <p class="current-focus-subtitle">Production Vehicle Management ERP for Sharma Fabricators &amp; Erectors</p>
+            
+            <div class="current-focus-tags">
+              <span class="badge">Android App</span>
+              <span class="badge">Web Admin Panel</span>
+              <span class="badge">Real-time Sync</span>
+              <span class="badge">Cloud Database</span>
+            </div>
+
+            <p class="current-focus-desc">
+              A comprehensive enterprise system managing fleet vehicles, automated reminders (insurance, PUC, road tax, fitness), driver documents, maintenance tracking, user roles, and bidirectional real-time synchronization between the mobile field app and centralized web administration panel.
+            </p>
+          </div>
+        </div>
       </div>
 
-      <!-- RIGHT SIDE -->
-      <div class="about-points">
+      <!-- RIGHT COLUMN: 3 Architectural Pillars -->
+      <div class="about-pillars-col">
 
-        <article class="card">
-          <h3>ERP &amp; full-stack development</h3>
-
-          <p>
-            Building practical business systems with structured workflows,
-            vehicle management, user management, documents, maintenance,
-            and reminder features.
-          </p>
+        <article class="card pillar-card">
+          <div class="pillar-number">01</div>
+          <div class="pillar-content">
+            <h3>ERP &amp; Full-Stack Systems</h3>
+            <p>
+              Architecting end-to-end production software with structured workflows, comprehensive entity management, secure role-based access, and robust database models.
+            </p>
+          </div>
         </article>
 
-        <article class="card">
-          <h3>Mobile &amp; cloud systems</h3>
-
-          <p>
-            Developing Android applications connected with cloud-based
-            services for authentication, data storage, synchronization,
-            and day-to-day business operations.
-          </p>
+        <article class="card pillar-card">
+          <div class="pillar-number">02</div>
+          <div class="pillar-content">
+            <h3>Mobile &amp; Cloud Applications</h3>
+            <p>
+              Engineering native Android applications coupled with cloud infrastructures for reliable user authentication, remote data storage, and low-latency operation.
+            </p>
+          </div>
         </article>
 
-        <article class="card">
-          <h3>Real-time data systems</h3>
-
-          <p>
-            Working with real-time data synchronization between the Android
-            application and web-based admin panel to keep business
-            information updated across the system.
-          </p>
+        <article class="card pillar-card">
+          <div class="pillar-number">03</div>
+          <div class="pillar-content">
+            <h3>Real-Time Data Pipelines</h3>
+            <p>
+              Implementing live state synchronization and event-driven data flow across client interfaces and backend portals to maintain accurate real-time business operations.
+            </p>
+          </div>
         </article>
 
       </div>
@@ -83,4 +90,4 @@
     </div>
 
   </div>
-</section>
+</section>

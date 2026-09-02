@@ -1,228 +1,81 @@
 export function initFloatingProject() {
+  const modal = document.getElementById("project-modal");
+  const closeButton = document.getElementById("project-modal-close");
+  const backdrop = document.getElementById("project-modal-backdrop");
+  const video = document.getElementById("company-project-video");
 
-  const floatingButton =
-    document.getElementById(
-      "floating-project-btn"
-    );
-
-
-  const modal =
-    document.getElementById(
-      "project-modal"
-    );
-
-
-  const closeButton =
-    document.getElementById(
-      "project-modal-close"
-    );
-
-
-  const backdrop =
-    document.getElementById(
-      "project-modal-backdrop"
-    );
-
-
-  const video =
-    document.getElementById(
-      "company-project-video"
-    );
-
-
-  /* =====================================================
-     REQUIRED ELEMENT CHECK
-  ====================================================== */
-
-  if (
-    !floatingButton ||
-    !modal ||
-    !closeButton ||
-    !backdrop
-  ) {
-
-    console.error(
-      "Floating project component elements not found."
-    );
-
+  if (!modal || !closeButton || !backdrop) {
+    console.warn("Floating project modal elements not found.");
     return;
-
   }
-
-
-  /* =====================================================
-     OPEN MODAL
-  ====================================================== */
 
   function openModal() {
-
-    modal.classList.add(
-      "is-open"
-    );
-
-
-    modal.setAttribute(
-      "aria-hidden",
-      "false"
-    );
-
-
-    document.body.style.overflow =
-      "hidden";
-
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
 
     if (video) {
-
-      /*
-       * Reload the source when the modal opens.
-       * This helps ensure the newly added project-demo.mp4
-       * is loaded.
-       */
-
-      video.load();
-
+      try {
+        video.load();
+        const playPromise = video.play();
+        if (playPromise !== undefined) {
+          playPromise.catch((err) => {
+            console.log("Autoplay prevented or interrupted:", err);
+          });
+        }
+      } catch (err) {
+        console.warn("Could not play demo video:", err);
+      }
     }
-
   }
-
-
-  /* =====================================================
-     CLOSE MODAL
-  ====================================================== */
 
   function closeModal() {
-
-    modal.classList.remove(
-      "is-open"
-    );
-
-
-    modal.setAttribute(
-      "aria-hidden",
-      "true"
-    );
-
-
-    document.body.style.overflow =
-      "";
-
+    modal.classList.remove("is-open");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
 
     if (video) {
-
       video.pause();
-
-
       try {
-
-        video.currentTime =
-          0;
-
+        video.currentTime = 0;
       } catch (error) {
-
-        console.warn(
-          "Could not reset video:",
-          error
-        );
-
+        console.warn("Could not reset video:", error);
       }
-
     }
-
   }
 
-
-  /* =====================================================
-     OPEN BUTTON
-  ====================================================== */
-
-  floatingButton.addEventListener(
-    "click",
-    openModal
+  // Bind all triggers
+  const triggers = document.querySelectorAll(
+    "#floating-project-btn, #hero-latest-work-trigger, [data-photo], [data-open-project-demo]"
   );
 
+  triggers.forEach((trigger) => {
+    trigger.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      openModal();
+    });
+  });
 
-  /* =====================================================
-     CLOSE BUTTON
-  ====================================================== */
+  closeButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    closeModal();
+  });
 
-  closeButton.addEventListener(
-    "click",
-    closeModal
-  );
+  backdrop.addEventListener("click", closeModal);
 
-
-  /* =====================================================
-     BACKDROP CLICK
-  ====================================================== */
-
-  backdrop.addEventListener(
-    "click",
-    closeModal
-  );
-
-
-  /* =====================================================
-     ESCAPE KEY
-  ====================================================== */
-
-  document.addEventListener(
-    "keydown",
-    (event) => {
-
-      if (
-        event.key === "Escape" &&
-        modal.classList.contains(
-          "is-open"
-        )
-      ) {
-
-        closeModal();
-
-      }
-
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && modal.classList.contains("is-open")) {
+      closeModal();
     }
-  );
-
-
-  /* =====================================================
-     VIDEO SUCCESS
-  ====================================================== */
+  });
 
   if (video) {
-
-    video.addEventListener(
-      "loadeddata",
-      () => {
-
-        console.log(
-          "Project demo video loaded successfully."
-        );
-
-      }
-    );
-
-
-    /* ===================================================
-       VIDEO ERROR
-    ==================================================== */
-
-    video.addEventListener(
-      "error",
-      () => {
-
-        console.error(
-          "Project demo video failed to load."
-        );
-
-
-        console.error(
-          "Video source:",
-          video.currentSrc
-        );
-
-      }
-    );
-
+    video.addEventListener("loadeddata", () => {
+      console.log("Project demo video loaded successfully.");
+    });
+    video.addEventListener("error", () => {
+      console.error("Project demo video failed to load:", video.currentSrc);
+    });
   }
-
 }

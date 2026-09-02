@@ -39,85 +39,48 @@ function renderAbout(root = document) {
 ========================================================= */
 
 function renderSkills(root = document) {
-
-  const skillsGrid =
-    root.getElementById("skills-grid");
-
+  const skillsGrid = root.getElementById("skills-grid");
   if (!skillsGrid) return;
 
   skillsGrid.innerHTML = skills
     .map((skill) => {
-
+      const count = skill.items.length;
       const items = skill.items
         .map((item) => {
-
-          const skillName =
-            typeof item === "string"
-              ? item
-              : item.name || item.title || "";
-
-
+          const skillName = typeof item === "string" ? item : item.name || item.title || "";
           const skillIcon =
             typeof item === "object" && item.icon
-
-              ? `
-                <i
-                  class="${item.icon}"
-                  aria-hidden="true"
-                ></i>
-              `
-
+              ? `<i class="${item.icon}" aria-hidden="true"></i>`
               : typeof item === "object" && item.iconText
-
-                ? `
-                  <span>
-                    ${item.iconText}
-                  </span>
-                `
-
-                : `
-                  <span>
-                    ${skillName.charAt(0)}
-                  </span>
-                `;
-
+                ? `<span class="skill-text-icon">${item.iconText}</span>`
+                : `<span class="skill-text-icon">${skillName.charAt(0)}</span>`;
 
           return `
-            <div class="skill-icon-item">
-
-              <div class="skill-logo">
+            <div class="skill-item-capsule" title="${skillName}">
+              <div class="skill-logo-box">
                 ${skillIcon}
               </div>
-
-              <span class="skill-name">
-                ${skillName}
-              </span>
-
+              <span class="skill-name-label">${skillName}</span>
             </div>
           `;
-
         })
         .join("");
 
-
       return `
-        <article class="card skill-card">
-
-          <h3>
-            ${skill.category}
-          </h3>
-
-          <div class="skill-icons">
+        <article class="card skill-category-card">
+          <div class="skill-category-header">
+            <h3 class="skill-category-title">${skill.category}</h3>
+            <span class="skill-category-count">${count} ${count === 1 ? "TECH" : "TECHS"}</span>
+          </div>
+          <div class="skill-items-grid">
             ${items}
           </div>
-
         </article>
       `;
-
     })
     .join("");
-
 }
+
 
 
 /* =========================================================
@@ -125,100 +88,66 @@ function renderSkills(root = document) {
 ========================================================= */
 
 function createExperienceCard(item) {
-
+  const orgTitle = item.company || item.institution || "";
   const companyName = item.website
-
     ? `
       <a
         href="${item.website}"
         target="_blank"
         rel="noopener noreferrer"
-        class="company-link"
+        class="timeline-company-link"
       >
-        ${item.company || ""}
+        <span>${orgTitle}</span>
+        <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
       </a>
     `
-
-    : item.company || "";
-
+    : `<span class="timeline-company-title">${orgTitle}</span>`;
 
   const responsibilities =
-
-    Array.isArray(item.responsibilities) &&
-    item.responsibilities.length > 0
-
+    Array.isArray(item.responsibilities) && item.responsibilities.length > 0
       ? `
-        <ul>
+        <ul class="timeline-points">
           ${item.responsibilities
-            .map(
-              (point) => `<li>${point}</li>`
-            )
+            .map((point) => `<li>${point}</li>`)
             .join("")}
         </ul>
       `
-
       : "";
 
-
   const technologies =
-
-    Array.isArray(item.technologies) &&
-    item.technologies.length > 0
-
+    Array.isArray(item.technologies) && item.technologies.length > 0
       ? `
-        <div class="exp-tech">
+        <div class="timeline-tech">
           ${item.technologies
-            .map(
-              (tech) => `<span>${tech}</span>`
-            )
+            .map((tech) => `<span class="badge">${tech}</span>`)
             .join("")}
         </div>
       `
-
       : "";
 
-
   return `
-    <article class="card exp-card">
-
-      <div class="exp-meta">
-
-        ${
-          item.duration
-            ? `<span>${item.duration}</span>`
-            : ""
-        }
-
-        ${
-          item.location
-            ? `<span>${item.location}</span>`
-            : ""
-        }
-
+    <article class="timeline-entry">
+      <div class="timeline-marker">
+        <div class="timeline-dot"></div>
       </div>
-
-
-      <h3>
-        ${companyName}
-      </h3>
-
-
-      ${
-        item.role
-          ? `<h4>${item.role}</h4>`
-          : ""
-      }
-
-
-      ${responsibilities}
-
-
-      ${technologies}
-
+      <div class="card timeline-card">
+        <div class="timeline-header">
+          <div class="timeline-header-main">
+            <h3 class="timeline-org">${companyName}</h3>
+            ${item.role ? `<h4 class="timeline-role">${item.role}</h4>` : ""}
+          </div>
+          <div class="timeline-meta-tags">
+            ${item.duration ? `<span class="timeline-badge timeline-badge--time">${item.duration}</span>` : ""}
+            ${item.location ? `<span class="timeline-badge timeline-badge--loc">${item.location}</span>` : ""}
+          </div>
+        </div>
+        ${responsibilities}
+        ${technologies}
+      </div>
     </article>
   `;
-
 }
+
 
 
 /* =========================================================

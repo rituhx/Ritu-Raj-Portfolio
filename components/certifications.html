@@ -1,112 +1,43 @@
-<section
-  class="section certifications-section"
-  id="certifications"
->
+<section class="section certifications-section" id="certifications">
   <div class="container">
 
-    <div class="certifications-header">
-
-      <div>
-
-        <p class="section-kicker">
-          Credentials
-        </p>
-
-        <h2 class="section-title">
-          Certifications &
-          <span>learning</span>
-        </h2>
-
-        <p class="section-lead">
-          A collection of certifications and learning experiences
-          that reflect continuous growth and technical development.
-        </p>
-
+    <div class="section-header">
+      <div class="section-kicker">
+        <span>07</span>
+        <span>/</span>
+        <span>Credentials</span>
       </div>
-
+      <h2 class="section-title">
+        Certifications &amp; <span>Degrees</span>
+      </h2>
+      <p class="section-lead">
+        Verified academic degrees, professional AI/cloud certifications, and technical proficiencies representing continuous engineering growth.
+      </p>
     </div>
 
+    <!-- FEATURED GRADUATION DEGREE -->
+    <div class="graduation-card-wrap" id="graduation-card"></div>
 
-    <!-- =========================================
-         FEATURED GRADUATION DEGREE
-         BIG HORIZONTAL CARD
-    ========================================== -->
-
-    <div
-      class="graduation-card"
-      id="graduation-card"
-    ></div>
-
-
-    <!-- =========================================
-         4 CERTIFICATES
-         2 × 2 GRID
-    ========================================== -->
-
-    <div
-      class="certs-grid"
-      id="certs-grid"
-    ></div>
+    <!-- 4 CERTIFICATES GRID -->
+    <div class="certs-grid" id="certs-grid"></div>
 
   </div>
 </section>
 
+<!-- CERTIFICATE / DEGREE PREVIEW MODAL -->
+<div class="certificate-modal" id="certificate-modal" aria-hidden="true">
+  <div class="certificate-modal-backdrop" data-certificate-close></div>
 
-<!-- =========================================
-     CERTIFICATE / DEGREE PREVIEW MODAL
-========================================= -->
-
-<div
-  class="certificate-modal"
-  id="certificate-modal"
-  aria-hidden="true"
->
-
-  <div
-    class="certificate-modal-backdrop"
-    data-certificate-close
-  ></div>
-
-
-  <div
-    class="certificate-modal-box"
-    role="dialog"
-    aria-modal="true"
-    aria-labelledby="certificate-modal-title"
-  >
-
+  <div class="certificate-modal-box" role="dialog" aria-modal="true" aria-labelledby="certificate-modal-title">
     <div class="certificate-modal-header">
-
       <div>
-
-        <span class="certificate-modal-kicker">
-          Preview
-        </span>
-
-        <h3 id="certificate-modal-title">
-          Certificate Preview
-        </h3>
-
+        <span class="certificate-modal-kicker mono-label">// VERIFIED CREDENTIAL</span>
+        <h3 id="certificate-modal-title">Certificate Preview</h3>
       </div>
-
-
-      <button
-        type="button"
-        class="certificate-close"
-        data-certificate-close
-        aria-label="Close preview"
-      >
-        ×
+      <button type="button" class="certificate-close" data-certificate-close aria-label="Close preview">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
       </button>
-
     </div>
-
-
-    <div
-      class="certificate-modal-content"
-      id="certificate-modal-content"
-    ></div>
-
+    <div class="certificate-modal-content" id="certificate-modal-content"></div>
   </div>
-
-</div>
+</div>
