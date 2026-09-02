@@ -209,4 +209,57 @@
     flex-direction: column;
     gap: 0.75rem;
   }
-}
+}
+
+/* =========================================================
+   LIGHT THEME EXPERIENCE OVERRIDES (PREMIUM ICE SKY CANVAS)
+========================================================= */
+
+[data-theme="light"] .timeline-card {
+  background: rgba(255, 255, 255, 0.72);
+  border-color: rgba(90, 130, 165, 0.14);
+  box-shadow: 0 18px 45px rgba(55, 90, 120, 0.07);
+  backdrop-filter: blur(14px);
+}
+
+[data-theme="light"] .timeline-card:hover {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(22, 135, 232, 0.35);
+  box-shadow: 0 24px 55px rgba(45, 80, 115, 0.12);
+}
+
+[data-theme="light"] .timeline-dot {
+  background: #1687E8;
+  box-shadow:
+    0 0 0 4px #F1F6FB,
+    0 0 12px rgba(22, 135, 232, 0.4);
+}
+
+[data-theme="light"] .timeline-title {
+  color: #0B1630;
+}
+
+[data-theme="light"] .timeline-company {
+  color: #1687E8;
+}
+
+[data-theme="light"] .timeline-badge--time {
+  background: rgba(22, 135, 232, 0.08);
+  border-color: rgba(22, 135, 232, 0.22);
+  color: var(--accent);
+}
+
+[data-theme="light"] .timeline-badge--loc {
+  background: rgba(90, 130, 165, 0.1);
+  border-color: rgba(90, 130, 165, 0.18);
+  color: #52657D;
+}
+
+[data-theme="light"] .timeline-points li {
+  color: #52657D;
+}
+
+[data-theme="light"] .timeline-points li::marker {
+  color: #1687E8;
+}
+

@@ -1,4 +1,4 @@
-import { initReveal } from "./animations.js";
+import { initReveal, initBackgroundSystem } from "./animations.js";
 import { initContact } from "./contact.js";
 import { initGraduation } from "./graduation.js";
 import { initLifeVideo } from "./life-video.js";
@@ -117,9 +117,15 @@ function initTheme() {
   }
 
 
-  apply(
-    localStorage.getItem(key) || "dark"
-  );
+  const urlParams = new URLSearchParams(window.location.search);
+  const themeFromUrl = urlParams.get("theme");
+  if (themeFromUrl === "light" || themeFromUrl === "dark") {
+    apply(themeFromUrl);
+  } else {
+    apply(
+      localStorage.getItem(key) || "dark"
+    );
+  }
 
 
   if (btn) {
@@ -287,6 +293,11 @@ async function boot() {
   runSafely(
     "initHeroMotion",
     () => initHeroMotion()
+  );
+
+  runSafely(
+    "initBackgroundSystem",
+    () => initBackgroundSystem()
   );
 
 

@@ -1,18 +1,84 @@
 <!-- =====================================================
-     HERO SECTION (CINEMATIC TECH PROFILE)
+     HERO SECTION (CINEMATIC DIGITAL POSTER)
 ====================================================== -->
 
 <section class="hero" id="home">
 
-  <!-- Cinematic Background Elements -->
+  <!-- Layer 1: Ambient Background & Glow -->
   <div class="hero-bg-glow" aria-hidden="true"></div>
   <div class="hero-grid-lines" aria-hidden="true"></div>
 
-  <div class="container hero-grid">
+  <!-- Layer 2: Center-Right Giant 360° Rotating Portrait (78-88vh) -->
+  <div class="hero-visual" id="hero-visual">
+    <!-- Ambient Glow Behind Portrait -->
+    <div class="hero-ambient-glow" aria-hidden="true"></div>
 
-    <!-- =====================================================
-         LEFT / EDITORIAL CONTENT
-    ====================================================== -->
+    <!-- Portrait Container & 3D Stage -->
+    <div class="hero-portrait-stage" id="hero-portrait-stage">
+      <div class="portrait-parallax" id="portrait-parallax">
+        <div class="portrait-depth">
+          <!-- 360° Continuous 3D Holographic Turntable -->
+          <div class="portrait-turntable" id="portrait-turntable">
+            <figure class="hero-frame" id="hero-frame">
+              
+              <!-- Front Face (0deg: Full crisp portrait cutout) -->
+              <div class="portrait-face portrait-front">
+                <img
+                  id="floating-project-btn"
+                  data-photo
+                  alt="Portrait of Ritu Raj"
+                  width="620"
+                  height="780"
+                  role="button"
+                  tabindex="0"
+                  aria-label="View latest work demo video"
+                >
+                <div class="hero-portrait-blend" aria-hidden="true"></div>
+              </div>
+
+              <!-- Volumetric Depth & Rim Lighting Core (Prevents paper-thin collapse at 90°/270°) -->
+              <div class="portrait-depth-layer" aria-hidden="true">
+                <div class="depth-plane depth-plane-left"></div>
+                <div class="depth-plane depth-plane-right"></div>
+                <div class="depth-core-glow"></div>
+              </div>
+
+              <!-- Back Face (180deg: Dark Cyber Holographic Silhouette & Laser Mesh) -->
+              <div class="portrait-face portrait-back" aria-hidden="true">
+                <img
+                  data-photo-back
+                  alt="Portrait of Ritu Raj (Holographic depth silhouette)"
+                  width="620"
+                  height="780"
+                >
+                <div class="portrait-hologram-grid"></div>
+                <div class="portrait-laser-scan"></div>
+                <div class="hero-portrait-blend" aria-hidden="true"></div>
+              </div>
+
+              <!-- 3D Edge Rim Lighting Layer -->
+              <div class="portrait-3d-edge-rim" aria-hidden="true"></div>
+
+            </figure>
+          </div>
+        </div>
+      </div>
+
+      <!-- Floating Interactive Latest Work Pill (Floats in Foreground at z: 45px) -->
+      <button type="button" class="hero-latest-work-trigger" id="hero-latest-work-trigger" aria-label="Play latest work video demo">
+        <span class="trigger-play-icon">
+          <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" aria-hidden="true">
+            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+          </svg>
+        </span>
+        <span class="trigger-label">Latest Work</span>
+        <span class="trigger-hint">Watch Demo</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Layer 3: Left / Center-Left Dominant Editorial Typography -->
+  <div class="container hero-container">
     <div class="hero-copy">
 
       <!-- Availability Indicator -->
@@ -30,7 +96,6 @@
 
       <!-- Role & Tagline -->
       <div class="hero-role-badge">
-        <span class="hero-role-prefix">//</span>
         <span class="hero-role" data-field="role">Software Engineer</span>
       </div>
 
@@ -101,57 +166,6 @@
       </div>
 
     </div>
-
-    <!-- =====================================================
-         RIGHT / CINEMATIC PORTRAIT ANCHOR
-    ====================================================== -->
-    <div class="hero-visual">
-
-      <!-- Technical HUD Geometry & Lighting -->
-      <div class="hero-ambient-glow" aria-hidden="true"></div>
-      
-      <div class="hero-hud-ring ring-outer" aria-hidden="true"></div>
-      <div class="hero-hud-ring ring-inner" aria-hidden="true"></div>
-      <div class="hero-hud-telemetry" aria-hidden="true">
-        <span class="telemetry-coord">LAT 25.5649° N</span>
-        <span class="telemetry-coord">LNG 83.9777° E</span>
-      </div>
-
-      <!-- Particles for Depth -->
-      <span class="hero-particle particle-one" aria-hidden="true"></span>
-      <span class="hero-particle particle-two" aria-hidden="true"></span>
-      <span class="hero-particle particle-three" aria-hidden="true"></span>
-
-      <!-- Portrait Container -->
-      <div class="hero-portrait-stage">
-        <figure class="hero-frame">
-          <img
-            id="floating-project-btn"
-            data-photo
-            alt="Portrait of Ritu Raj"
-            width="520"
-            height="650"
-            role="button"
-            tabindex="0"
-            aria-label="View latest work demo video"
-          >
-          <div class="hero-portrait-blend" aria-hidden="true"></div>
-        </figure>
-
-        <!-- Floating Interactive Latest Work Pill -->
-        <button type="button" class="hero-latest-work-trigger" id="hero-latest-work-trigger" aria-label="Play latest work video demo">
-          <span class="trigger-play-icon">
-            <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" aria-hidden="true">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </span>
-          <span class="trigger-label">Latest Work</span>
-          <span class="trigger-hint">Watch Demo</span>
-        </button>
-      </div>
-
-    </div>
-
   </div>
 
   <!-- Scroll Indicator -->

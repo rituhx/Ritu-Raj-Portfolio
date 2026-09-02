@@ -1,4 +1,4 @@
-﻿/* =========================================================
+/* =========================================================
    CERTIFICATIONS & DEGREES (CINEMATIC SHOWCASE)
 ========================================================= */
 
@@ -416,3 +416,77 @@
     padding: 1.25rem;
   }
 }
+
+/* =========================================================
+   LIGHT THEME CERTIFICATIONS OVERRIDES (PREMIUM SKY DAY CANVAS)
+========================================================= */
+
+[data-theme="light"] .featured-graduation-card {
+  background: rgba(255, 255, 255, 0.78);
+  border-color: rgba(22, 135, 232, 0.28);
+  box-shadow: 0 18px 50px rgba(50, 100, 150, 0.1);
+  backdrop-filter: blur(14px);
+}
+
+[data-theme="light"] .featured-graduation-title {
+  color: #0B1630;
+}
+
+[data-theme="light"] .featured-graduation-meta {
+  color: #1687E8;
+}
+
+[data-theme="light"] .featured-graduation-desc {
+  color: #52657D;
+}
+
+[data-theme="light"] .certification-card {
+  background: rgba(255, 255, 255, 0.72);
+  border-color: rgba(80, 140, 190, 0.16);
+  box-shadow: 0 18px 50px rgba(50, 100, 150, 0.08);
+  backdrop-filter: blur(14px);
+}
+
+[data-theme="light"] .certification-card:hover {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(22, 135, 232, 0.35);
+  box-shadow: 0 24px 60px rgba(40, 90, 140, 0.14);
+}
+
+[data-theme="light"] .certification-title {
+  color: #0B1630;
+}
+
+[data-theme="light"] .certification-issuer {
+  color: #1687E8;
+}
+
+[data-theme="light"] .certification-desc {
+  color: #52657D;
+}
+
+[data-theme="light"] .certificate-modal-backdrop {
+  background: rgba(11, 22, 48, 0.6);
+}
+
+[data-theme="light"] .certificate-modal-box {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(80, 140, 190, 0.2);
+  box-shadow: 0 25px 60px rgba(50, 100, 150, 0.2);
+}
+
+[data-theme="light"] .certificate-modal-header h3 {
+  color: #0B1630;
+}
+
+[data-theme="light"] .certificate-close {
+  background: #EAF4FF;
+  border-color: rgba(80, 140, 190, 0.2);
+  color: #52657D;
+}
+
+[data-theme="light"] .certificate-close:hover {
+  color: #0B1630;
+  border-color: var(--accent);
+}
+

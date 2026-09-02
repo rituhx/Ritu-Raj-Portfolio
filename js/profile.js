@@ -33,8 +33,8 @@ function applyProfile(root = document) {
     el.setAttribute("download", profile.resumeDownload);
   });
 
-  /* Profile Photo with automatic fallback */
-  root.querySelectorAll("[data-photo]").forEach((img) => {
+  /* Profile Photo with automatic fallback (Front & Back Faces) */
+  root.querySelectorAll("[data-photo], [data-photo-back]").forEach((img) => {
     img.src = profile.photo;
     img.alt = "Portrait of " + profile.name;
 

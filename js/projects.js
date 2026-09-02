@@ -26,7 +26,7 @@ function getProjectGraphic(project) {
     return `
       <div class="project-art-canvas project-art--vision" aria-hidden="true">
         <div class="art-hud-header">
-          <span class="art-tag">CV // GESTURE PIPELINE</span>
+          <span class="art-tag">CV · GESTURE PIPELINE</span>
           <span class="art-status">98.4% CONFIDENCE</span>
         </div>
         <svg class="art-svg-graphic" viewBox="0 0 400 240" fill="none">
@@ -58,7 +58,7 @@ function getProjectGraphic(project) {
     return `
       <div class="project-art-canvas project-art--biometric" aria-hidden="true">
         <div class="art-hud-header">
-          <span class="art-tag">BIOMETRIC // ATTENDANCE SCAN</span>
+          <span class="art-tag">BIOMETRIC · ATTENDANCE SCAN</span>
           <span class="art-status">DATABASE SYNCED</span>
         </div>
         <svg class="art-svg-graphic" viewBox="0 0 400 240" fill="none">
@@ -83,7 +83,7 @@ function getProjectGraphic(project) {
     return `
       <div class="project-art-canvas project-art--telemetry" aria-hidden="true">
         <div class="art-hud-header">
-          <span class="art-tag">ESP32 + A9G // TELEMETRY</span>
+          <span class="art-tag">ESP32 + A9G · TELEMETRY</span>
           <span class="art-status">MQTT ACTIVE</span>
         </div>
         <svg class="art-svg-graphic" viewBox="0 0 400 240" fill="none">
@@ -98,7 +98,7 @@ function getProjectGraphic(project) {
           <circle cx="225" cy="95" r="14" stroke="#14b8a6" stroke-width="1.5" opacity="0.6"/>
           <!-- Emergency Alert Box -->
           <rect x="100" y="175" width="200" height="30" rx="8" fill="rgba(15,23,42,0.9)" stroke="#14b8a6" stroke-width="1.2"/>
-          <text x="200" y="195" fill="#5eead4" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold" text-anchor="middle">SOS ALERT // GPS: 25.56°N</text>
+          <text x="200" y="195" fill="#5eead4" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold" text-anchor="middle">SOS ALERT · GPS: 25.56°N</text>
         </svg>
       </div>
     `;
@@ -108,7 +108,7 @@ function getProjectGraphic(project) {
     return `
       <div class="project-art-canvas project-art--emotion" aria-hidden="true">
         <div class="art-hud-header">
-          <span class="art-tag">DEEPFACE // REAL-TIME EMOTION</span>
+          <span class="art-tag">DEEPFACE · REAL-TIME EMOTION</span>
           <span class="art-status">HAAR CASCADE</span>
         </div>
         <svg class="art-svg-graphic" viewBox="0 0 400 240" fill="none">
@@ -138,7 +138,7 @@ function getProjectGraphic(project) {
   return `
     <div class="project-art-canvas project-art--motion" aria-hidden="true">
       <div class="art-hud-header">
-        <span class="art-tag">EDGE IMPULSE // IMU SENSORS</span>
+        <span class="art-tag">EDGE IMPULSE · IMU SENSORS</span>
         <span class="art-status">ON-DEVICE ML</span>
       </div>
       <svg class="art-svg-graphic" viewBox="0 0 400 240" fill="none">
@@ -202,7 +202,7 @@ function renderProjects(root = document) {
           
           <div class="project-content-col">
             <div class="project-header">
-              <span class="project-number-badge">${projectNumber} // CASE STUDY</span>
+              <span class="project-number-badge">CASE STUDY</span>
               ${isFeatured ? '<span class="project-featured-badge">FEATURED</span>' : ''}
             </div>
 

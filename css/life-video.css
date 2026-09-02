@@ -126,3 +126,36 @@
   }
 }
 
+/* =========================================================
+   LIGHT THEME LIFE VIDEO OVERRIDES (PREMIUM SKY DAY CANVAS)
+========================================================= */
+
+[data-theme="light"] .video-card {
+  background: rgba(255, 255, 255, 0.72);
+  border-color: rgba(80, 140, 190, 0.16);
+  box-shadow: 0 18px 50px rgba(50, 100, 150, 0.08);
+  backdrop-filter: blur(14px);
+}
+
+[data-theme="light"] .video-card:hover {
+  border-color: rgba(22, 135, 232, 0.35);
+  box-shadow: 0 24px 60px rgba(40, 90, 140, 0.14);
+}
+
+[data-theme="light"] .video-info {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(80, 140, 190, 0.16);
+  color: #52657D;
+}
+
+[data-theme="light"] .video-badge {
+  background: rgba(22, 135, 232, 0.08);
+  border-color: rgba(22, 135, 232, 0.22);
+  color: var(--accent);
+}
+
+[data-theme="light"] .video-duration {
+  color: #70849E;
+}
+
+

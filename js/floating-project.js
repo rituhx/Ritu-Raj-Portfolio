@@ -46,7 +46,7 @@ export function initFloatingProject() {
 
   // Bind all triggers
   const triggers = document.querySelectorAll(
-    "#floating-project-btn, #hero-latest-work-trigger, [data-photo], [data-open-project-demo]"
+    "#floating-project-btn, #hero-latest-work-trigger, #about-focus-demo-btn, [data-photo], [data-photo-back], .portrait-face, [data-open-project-demo]"
   );
 
   triggers.forEach((trigger) => {

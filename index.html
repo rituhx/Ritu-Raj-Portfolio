@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 
 <head>
 
@@ -126,6 +126,43 @@
   >
     Skip to content
   </a>
+
+
+  <!-- =====================================================
+       FULL-PAGE CINEMATIC ANIMATED BACKGROUND SYSTEM
+  ====================================================== -->
+  <div class="background-system" id="background-system" aria-hidden="true">
+    <div class="bg-layer-deep"></div>
+    <div class="bg-layer-light-fields">
+      <div class="light-orb light-orb-primary"></div>
+      <div class="light-orb light-orb-secondary"></div>
+      <div class="light-orb light-orb-tertiary"></div>
+    </div>
+    <div class="bg-layer-grid"></div>
+    <div class="bg-layer-particles">
+      <canvas id="bg-particle-canvas"></canvas>
+    </div>
+    <div class="bg-layer-cyber-lines">
+      <svg class="cyber-svg-lines" viewBox="0 0 1440 900" fill="none" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="cyan-beam-grad-1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#38bdf8" stop-opacity="0" />
+            <stop offset="50%" stop-color="#38bdf8" stop-opacity="0.8" />
+            <stop offset="100%" stop-color="#6366f1" stop-opacity="0" />
+          </linearGradient>
+          <linearGradient id="cyan-beam-grad-2" x1="100%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#06b6d4" stop-opacity="0" />
+            <stop offset="50%" stop-color="#38bdf8" stop-opacity="0.7" />
+            <stop offset="100%" stop-color="#3b82f6" stop-opacity="0" />
+          </linearGradient>
+        </defs>
+        <path class="laser-beam-1" d="M -100 150 C 300 80, 800 350, 1540 180" />
+        <path class="laser-beam-2" d="M -100 720 C 450 820, 950 550, 1540 760" />
+        <path class="laser-beam-1" d="M 200 -50 C 400 350, 1100 600, 1300 950" opacity="0.4" />
+      </svg>
+    </div>
+    <div class="bg-layer-vignette"></div>
+  </div>
 
 
   <!-- =====================================================

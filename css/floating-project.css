@@ -133,3 +133,36 @@
     height: 36px;
   }
 }
+
+/* =========================================================
+   LIGHT THEME PROJECT MODAL OVERRIDES (PREMIUM SKY DAY CANVAS)
+========================================================= */
+
+[data-theme="light"] .project-modal-backdrop {
+  background: rgba(11, 22, 48, 0.65);
+}
+
+[data-theme="light"] .project-modal-content {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(80, 140, 190, 0.2);
+  box-shadow: 0 30px 80px rgba(50, 100, 150, 0.22);
+}
+
+[data-theme="light"] .project-modal-header h2 {
+  color: #0B1630;
+}
+
+[data-theme="light"] .project-modal-desc {
+  color: #52657D;
+}
+
+[data-theme="light"] .project-modal-close {
+  background: #EAF4FF;
+  border-color: rgba(80, 140, 190, 0.2);
+  color: #52657D;
+}
+
+[data-theme="light"] .project-modal-close:hover {
+  color: #0B1630;
+  border-color: var(--accent);
+}

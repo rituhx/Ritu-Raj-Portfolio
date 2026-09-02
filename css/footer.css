@@ -5,7 +5,7 @@
 .footer {
   border-top: 1px solid var(--border);
   padding: 4rem 0 2.5rem;
-  background: var(--bg);
+  background: transparent;
   position: relative;
 }
 
@@ -115,4 +115,37 @@
     transform: none;
   }
 }
+
+/* =========================================================
+   LIGHT THEME FOOTER OVERRIDES (PREMIUM SKY DAY CANVAS)
+========================================================= */
+
+[data-theme="light"] .footer-brand {
+  color: #0B1630;
+}
+
+[data-theme="light"] .footer-role {
+  color: #1687E8;
+}
+
+[data-theme="light"] .footer-heading {
+  color: #1687E8;
+}
+
+[data-theme="light"] .footer-desc {
+  color: #52657D;
+}
+
+[data-theme="light"] .footer-links a {
+  color: #52657D;
+}
+
+[data-theme="light"] .footer-links a:hover {
+  color: #0B1630;
+}
+
+[data-theme="light"] .footer-bottom {
+  color: #70849E;
+}
+
 
