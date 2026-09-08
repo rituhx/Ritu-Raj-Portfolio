@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* =========================================================
    CINEMATIC FLOATING NAVBAR
 ========================================================= */
@@ -30,9 +31,32 @@
     background 0.3s var(--ease),
     border-color 0.3s var(--ease),
     box-shadow 0.3s var(--ease);
+=======
+/* =========================================
+   NAVBAR
+   ========================================= */
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 80;
+
+  height: var(--nav-h);
+
+  background: transparent;
+  border: none;
+
+  padding-top: 10px;
+>>>>>>> 1a38ba0 (Update portfolio navbar design)
 }
 
+
+/* =========================================
+   NAV INNER / GLASS PILL
+   ========================================= */
+
 .nav-inner {
+<<<<<<< HEAD
   height: 54px;
   padding: 0 1.25rem;
   display: flex;
@@ -44,13 +68,54 @@
 /* =========================================================
    BRAND LOGO
 ========================================================= */
+=======
+  width: min(var(--max), calc(100% - 2.5rem));
+  height: 58px;
+
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 1rem;
+
+  padding: 0 14px 0 12px;
+
+  background: rgba(255, 255, 255, 0.68);
+
+  border: 1px solid rgba(120, 170, 220, 0.28);
+
+  border-radius: 32px;
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  box-shadow:
+    0 8px 28px rgba(50, 100, 150, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+
+/* =========================================
+   LOGO
+   ========================================= */
+>>>>>>> 1a38ba0 (Update portfolio navbar design)
 
 .nav-logo {
   display: inline-flex;
   align-items: center;
+<<<<<<< HEAD
   gap: 0.75rem;
+=======
+
+  gap: 0.65rem;
+
+>>>>>>> 1a38ba0 (Update portfolio navbar design)
   text-decoration: none;
+
   font-weight: 700;
+<<<<<<< HEAD
   letter-spacing: -0.02em;
   color: var(--text);
   transition: transform 0.25s var(--ease);
@@ -58,9 +123,20 @@
 
 .nav-logo:hover {
   transform: translateY(-1px);
+=======
+  letter-spacing: -0.03em;
+
+  color: var(--text);
+
+  flex-shrink: 0;
+>>>>>>> 1a38ba0 (Update portfolio navbar design)
 }
 
+
+/* RR BOX */
+
 .nav-mark {
+<<<<<<< HEAD
   position: relative;
   width: 32px;
   height: 32px;
@@ -116,20 +192,85 @@
 /* =========================================================
    NAVIGATION LINKS
 ========================================================= */
+=======
+  width: 34px;
+  height: 34px;
+
+  display: grid;
+  place-items: center;
+
+  position: relative;
+
+  border: 1px solid rgba(80, 160, 230, 0.35);
+
+  border-radius: 9px;
+
+  color: #1685df;
+
+  background: rgba(235, 247, 255, 0.75);
+
+  font-family: var(--mono);
+
+  font-size: 0.72rem;
+}
+
+
+/* Blue dot */
+
+.nav-mark::after {
+  content: "";
+
+  position: absolute;
+
+  width: 7px;
+  height: 7px;
+
+  top: -4px;
+  right: -4px;
+
+  border-radius: 50%;
+
+  background: #1685df;
+
+  box-shadow:
+    0 0 0 2px rgba(255, 255, 255, 0.85);
+}
+
+
+/* =========================================
+   NAVIGATION LINKS
+   ========================================= */
+>>>>>>> 1a38ba0 (Update portfolio navbar design)
 
 .nav-links {
   display: flex;
   align-items: center;
+<<<<<<< HEAD
   gap: 0.25rem;
+=======
+  justify-content: center;
+
+  gap: 0.05rem;
+
+>>>>>>> 1a38ba0 (Update portfolio navbar design)
   list-style: none;
+
+  margin: 0 auto;
+  padding: 0;
 }
 
+<<<<<<< HEAD
 .nav-links li {
   position: relative;
 }
+=======
+>>>>>>> 1a38ba0 (Update portfolio navbar design)
 
 .nav-links a {
+  display: inline-block;
+
   text-decoration: none;
+<<<<<<< HEAD
   color: var(--text-muted);
   font-size: 0.875rem;
   font-weight: 500;
@@ -163,10 +304,42 @@
 /* =========================================================
    ACTION BUTTONS & THEME TOGGLE
 ========================================================= */
+=======
+
+  color: #53677c;
+
+  font-size: 0.88rem;
+
+  font-weight: 500;
+
+  padding: 0.5rem 0.72rem;
+
+  border-radius: 9px;
+
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--text);
+
+  background: rgba(255, 255, 255, 0.62);
+}
+
+
+/* =========================================
+   RIGHT ACTIONS
+   ========================================= */
+>>>>>>> 1a38ba0 (Update portfolio navbar design)
 
 .nav-actions {
   display: flex;
   align-items: center;
+<<<<<<< HEAD
   gap: 0.65rem;
 }
 
@@ -209,10 +382,61 @@
 
 [data-theme="light"] .theme-icon-dark {
   display: none;
+=======
+
+  gap: 0.55rem;
+
+  flex-shrink: 0;
 }
+
+
+/* =========================================
+   THEME BUTTON
+   ========================================= */
+
+.theme-toggle {
+  width: 38px;
+  height: 38px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(120, 150, 180, 0.22);
+
+  background: rgba(255, 255, 255, 0.65);
+
+  color: #52667a;
+
+  cursor: pointer;
+
+  font-size: 1.05rem;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+
+.theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.92);
+
+  border-color: rgba(80, 150, 220, 0.35);
+
+  transform: translateY(-1px);
+>>>>>>> 1a38ba0 (Update portfolio navbar design)
+}
+
+
+/* =========================================
+   RESUME BUTTON
+   ========================================= */
 
 .nav-resume {
   min-height: 38px;
+<<<<<<< HEAD
   padding: 0.45rem 1.1rem;
   font-size: 0.84rem;
   gap: 0.4rem;
@@ -271,9 +495,106 @@
 @media (max-width: 1080px) {
   .nav-toggle {
     display: flex;
+=======
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  padding: 0.45rem 1rem;
+
+  border-radius: 22px;
+
+  background: #1685df;
+
+  color: #ffffff;
+
+  text-decoration: none;
+
+  font-size: 0.86rem;
+
+  font-weight: 600;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  box-shadow:
+    0 5px 14px rgba(22, 133, 223, 0.22);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+
+.nav-resume:hover {
+  background: #0d78cf;
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 7px 18px rgba(22, 133, 223, 0.28);
+}
+
+
+.resume-icon {
+  font-size: 1rem;
+
+  line-height: 1;
+}
+
+
+/* =========================================
+   MOBILE MENU BUTTON
+   ========================================= */
+
+.nav-toggle {
+  width: 38px;
+  height: 38px;
+
+  display: none;
+  place-items: center;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(120, 150, 180, 0.22);
+
+  background: rgba(255, 255, 255, 0.65);
+
+  color: #52667a;
+
+  cursor: pointer;
+
+  font-size: 1rem;
+}
+
+
+/* =========================================
+   TABLET / MOBILE
+   ========================================= */
+
+@media (max-width: 1180px) {
+
+  .nav {
+    padding-top: 8px;
   }
 
+  .nav-inner {
+    width: calc(100% - 1.5rem);
+
+    height: 56px;
+  }
+
+  .nav-toggle {
+    display: grid;
+>>>>>>> 1a38ba0 (Update portfolio navbar design)
+  }
+
+
   .nav-links {
+<<<<<<< HEAD
     position: absolute;
     top: calc(100% + 8px);
     left: 0;
@@ -292,7 +613,41 @@
     transition:
       opacity 0.25s var(--ease),
       transform 0.25s var(--ease);
+=======
+    position: fixed;
+
+    top: calc(var(--nav-h) + 8px);
+
+    left: 0;
+    right: 0;
+
+    width: calc(100% - 1.5rem);
+
+    margin: 0 auto;
+
+    display: none;
+
+    flex-direction: column;
+    align-items: stretch;
+
+    padding: 0.75rem;
+
+    background: rgba(255, 255, 255, 0.94);
+
+    border: 1px solid rgba(120, 170, 220, 0.25);
+
+    border-radius: 20px;
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    box-shadow:
+      0 15px 35px rgba(50, 100, 150, 0.12);
+
+    gap: 0.2rem;
+>>>>>>> 1a38ba0 (Update portfolio navbar design)
   }
+
 
   .nav.open .nav-links {
     display: flex;
@@ -300,18 +655,27 @@
     transform: translateY(0);
   }
 
+
   .nav-links a {
+<<<<<<< HEAD
     display: block;
     padding: 0.75rem 1rem;
     font-size: 0.95rem;
     border-radius: var(--radius-sm);
+=======
+    width: 100%;
+
+    padding: 0.85rem 0.8rem;
+>>>>>>> 1a38ba0 (Update portfolio navbar design)
   }
+
 
   .nav-actions .nav-resume {
     display: none;
   }
 }
 
+<<<<<<< HEAD
 /* =========================================================
    LIGHT THEME NAVBAR OVERRIDES (PREMIUM ICE SKY CANVAS)
 ========================================================= */
@@ -373,3 +737,36 @@
 }
 
 
+=======
+
+/* =========================================
+   SMALL MOBILE
+   ========================================= */
+
+@media (max-width: 600px) {
+
+  .nav-inner {
+    height: 54px;
+
+    padding: 0 9px;
+  }
+
+
+  .nav-logo {
+    gap: 0.5rem;
+  }
+
+
+  .nav-mark {
+    width: 32px;
+    height: 32px;
+  }
+
+
+  .theme-toggle,
+  .nav-toggle {
+    width: 36px;
+    height: 36px;
+  }
+}
+>>>>>>> 1a38ba0 (Update portfolio navbar design)
