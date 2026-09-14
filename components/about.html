@@ -13,23 +13,26 @@
       </p>
     </div>
 
-    <div class="about-grid">
+    <div class="about-layout">
 
-      <!-- LEFT COLUMN: Bio & Featured Production System -->
-      <div class="about-primary-col">
+      <!-- TOP: Asymmetric Primary Showcase (Philosophy Dominant + Production ERP Anchor) -->
+      <div class="about-hero-grid">
+
+        <!-- Engineering Philosophy (Visually Dominant) -->
         <div class="card about-bio-card">
           <div class="about-card-header">
-            <span class="mono-label">SYSTEM PHILOSOPHY</span>
+            <span class="mono-label">CORE PHILOSOPHY &amp; ARCHITECTURE</span>
+            <span class="about-spec-badge">ENGINEERING FOCUS</span>
           </div>
           <!-- Profile text injected from data/profile.js -->
           <div class="about-bio-text" id="about-copy"></div>
         </div>
 
-        <!-- Featured Focus: SFE Vehicle Reminder ERP -->
+        <!-- Featured Production Focus: SFE Vehicle Reminder ERP -->
         <div class="card current-focus-card">
           <div class="current-focus-badge">
             <span class="current-focus-pulse"></span>
-            <span>CURRENT FOCUS &amp; PRODUCTION SYSTEM</span>
+            <span>PRODUCTION SYSTEM IN USE</span>
           </div>
 
           <div class="current-focus-body">
@@ -48,20 +51,24 @@
             </p>
 
             <div class="current-focus-actions">
-              <button type="button" class="btn btn-primary btn-sm focus-demo-btn" id="about-focus-demo-btn" aria-label="Watch SFE ERP system demo video">
+              <button type="button" class="btn btn-primary btn-sm focus-demo-btn" id="about-focus-demo-btn" data-open-project-demo aria-label="Watch SFE ERP system demo video">
                 <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
                 <span>Watch System Demo</span>
               </button>
             </div>
           </div>
         </div>
+
       </div>
 
-      <!-- RIGHT COLUMN: 3 Architectural Pillars -->
-      <div class="about-pillars-col">
+      <!-- BOTTOM: 3 Architectural Pillars (Compact & Secondary Row) -->
+      <div class="about-pillars-row">
 
         <article class="card pillar-card">
-          <div class="pillar-number">01</div>
+          <div class="pillar-header">
+            <span class="pillar-number">01</span>
+            <span class="pillar-category">SYSTEMS</span>
+          </div>
           <div class="pillar-content">
             <h3>ERP &amp; Full-Stack Systems</h3>
             <p>
@@ -71,7 +78,10 @@
         </article>
 
         <article class="card pillar-card">
-          <div class="pillar-number">02</div>
+          <div class="pillar-header">
+            <span class="pillar-number">02</span>
+            <span class="pillar-category">CLIENT / CLOUD</span>
+          </div>
           <div class="pillar-content">
             <h3>Mobile &amp; Cloud Applications</h3>
             <p>
@@ -81,7 +91,10 @@
         </article>
 
         <article class="card pillar-card">
-          <div class="pillar-number">03</div>
+          <div class="pillar-header">
+            <span class="pillar-number">03</span>
+            <span class="pillar-category">DATA FLOW</span>
+          </div>
           <div class="pillar-content">
             <h3>Real-Time Data Pipelines</h3>
             <p>
@@ -95,4 +108,4 @@
     </div>
 
   </div>
-</section>
+</section>

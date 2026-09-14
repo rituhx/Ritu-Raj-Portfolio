@@ -1,214 +1,215 @@
-import { profile } from "../data/profile.js";
+/* =========================================================
+   ANIMATIONS & FAST SCROLL-SLIDE CONTROLLER
+   - High-performance, GPU-friendly scroll slides
+   - STRICT RULE: NO FADE (opacity: 1 always)
+   - Pure transform: translateY(28px) -> translateY(0)
+   - Dynamic will-change lifecycle cleanup (zero GPU memory leak)
+   - Reduced stagger (40–50ms max, capped at 120ms)
+   - Small rootMargin: "0px 0px -5% 0px"
+   - Bulletproof fallback & fast scroll watchdog (zero stuck state)
+   - STRICT RULE: Profile photo & portrait containers completely static
+========================================================= */
 
 function initTypewriter() {
-  const el = document.getElementById("typewriter-text");
-  const lines = profile.typewriter || [];
-  if (!el || !lines.length) return;
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    el.textContent = lines[0];
-    return;
-  }
-
-  let line = 0;
-  let i = 0;
-  let deleting = false;
-
-  const tick = () => {
-    const text = lines[line];
-    el.textContent = text.slice(0, i);
-    if (!deleting && i < text.length) {
-      i += 1;
-      setTimeout(tick, 70);
-    } else if (!deleting && i === text.length) {
-      deleting = true;
-      setTimeout(tick, 1400);
-    } else if (deleting && i > 0) {
-      i -= 1;
-      setTimeout(tick, 36);
-    } else {
-      deleting = false;
-      line = (line + 1) % lines.length;
-      setTimeout(tick, 280);
-    }
-  };
-  tick();
+  // Minimal placeholder
 }
 
 function initBackgroundSystem() {
-  const canvas = document.getElementById("bg-particle-canvas");
-  if (!canvas) return;
-
-  const ctx = canvas.getContext("2d");
-  if (!ctx) return;
-
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    return;
-  }
-
-  let width = 0;
-  let height = 0;
-  let dpr = 1;
-  let particles = [];
-  const PARTICLE_COUNT = 36;
-  const CONNECTION_DIST = 85;
-
-  const DARK_COLORS = [
-    "rgba(56, 189, 248, ", // cyan
-    "rgba(59, 130, 246, ", // blue
-    "rgba(6, 182, 212, ",  // teal
-    "rgba(99, 102, 241, "  // indigo
-  ];
-
-  const LIGHT_COLORS = [
-    "rgba(2, 132, 199, ",  // sky blue
-    "rgba(37, 99, 235, ",  // royal blue
-    "rgba(8, 145, 178, ",  // ocean
-    "rgba(99, 102, 241, "  // indigo
-  ];
-
-  function resize() {
-    dpr = Math.min(window.devicePixelRatio || 1, 2);
-    width = window.innerWidth;
-    height = window.innerHeight;
-    canvas.width = width * dpr;
-    canvas.height = height * dpr;
-    ctx.scale(dpr, dpr);
-  }
-
-  function createParticles() {
-    particles = [];
-    for (let i = 0; i < PARTICLE_COUNT; i++) {
-      particles.push({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.22,
-        vy: (Math.random() - 0.5) * 0.22,
-        radius: Math.random() * 1.5 + 1.0,
-        baseAlpha: Math.random() * 0.35 + 0.15,
-        alphaPhase: Math.random() * Math.PI * 2,
-        alphaSpeed: Math.random() * 0.015 + 0.008,
-        colorIndex: Math.floor(Math.random() * 4)
-      });
-    }
-  }
-
-  resize();
-  createParticles();
-
-  window.addEventListener("resize", () => {
-    resize();
-    createParticles();
-  }, { passive: true });
-
-  let animId = null;
-  let isTabVisible = true;
-
-  document.addEventListener("visibilitychange", () => {
-    isTabVisible = !document.hidden;
-    if (isTabVisible && !animId) {
-      animId = requestAnimationFrame(render);
-    }
-  });
-
-  function render() {
-    if (!isTabVisible) {
-      animId = null;
-      return;
-    }
-
-    const isLightMode = document.documentElement.getAttribute("data-theme") === "light";
-    const colors = isLightMode ? LIGHT_COLORS : DARK_COLORS;
-
-    ctx.clearRect(0, 0, width, height);
-
-    // Update & draw particles
-    for (let i = 0; i < particles.length; i++) {
-      const p = particles[i];
-
-      p.x += p.vx;
-      p.y += p.vy;
-      p.alphaPhase += p.alphaSpeed;
-
-      // Wrap edges
-      if (p.x < 0) p.x = width;
-      if (p.x > width) p.x = 0;
-      if (p.y < 0) p.y = height;
-      if (p.y > height) p.y = 0;
-
-      const currentAlpha = p.baseAlpha + Math.sin(p.alphaPhase) * 0.12;
-      const alphaClamped = isLightMode
-        ? Math.max(0.04, Math.min(0.28, currentAlpha * 0.6))
-        : Math.max(0.05, Math.min(0.6, currentAlpha));
-
-      const prefix = colors[p.colorIndex % colors.length];
-
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-      ctx.fillStyle = prefix + alphaClamped + ")";
-      if (!isLightMode) {
-        ctx.shadowColor = prefix + "0.6)";
-        ctx.shadowBlur = 6;
-      } else {
-        ctx.shadowBlur = 0;
-      }
-      ctx.fill();
-
-      // Connector lines between nearby particles
-      for (let j = i + 1; j < particles.length; j++) {
-        const p2 = particles[j];
-        const dx = p.x - p2.x;
-        const dy = p.y - p2.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-
-        if (dist < CONNECTION_DIST) {
-          const lineAlpha = (1 - dist / CONNECTION_DIST) * (isLightMode ? 0.04 : 0.08);
-          ctx.beginPath();
-          ctx.moveTo(p.x, p.y);
-          ctx.lineTo(p2.x, p2.y);
-          ctx.strokeStyle = isLightMode
-            ? "rgba(37, 99, 235, " + lineAlpha + ")"
-            : "rgba(56, 189, 248, " + lineAlpha + ")";
-          ctx.lineWidth = 0.75;
-          ctx.shadowBlur = 0;
-          ctx.stroke();
-        }
-      }
-    }
-
-    animId = requestAnimationFrame(render);
-  }
-
-  animId = requestAnimationFrame(render);
+  // Disabled per requirements
 }
 
 function initReveal() {
-  const nodes = document.querySelectorAll(".section, .hero-grid, .reveal, .card");
-  
-  if (!("IntersectionObserver" in window)) {
-    nodes.forEach((n) => {
-      n.classList.add("reveal", "is-revealed");
-    });
+  // Check user preference for reduced motion
+  const prefersReduced =
+    typeof window.matchMedia === "function" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (prefersReduced || !("IntersectionObserver" in window)) {
+    // If reduced motion or no IntersectionObserver, leave all elements in normal flow
     return;
+  }
+
+  // Approved targets per specification
+  const targetSelectors = [
+    ".section-header",
+    ".section-kicker",
+    ".section-title",
+    ".section-lead",
+    ".about-philosophy-card",
+    ".about-sfe-card",
+    ".about-hero-grid > *",
+    ".about-pillars-row > *",
+    ".capability-strip",
+    ".capabilities-strip",
+    ".project-card",
+    ".skill-category-card",
+    ".timeline-entry",
+    ".featured-graduation-card",
+    ".certification-card",
+    ".grad-item",
+    ".grad-actions",
+    ".video-card",
+    ".contact-grid > *"
+  ];
+
+  const rawNodes = document.querySelectorAll(targetSelectors.join(", "));
+
+  // STRICT RULE: Strictly filter out any node that is or is inside the profile photo / portrait container
+  const validNodes = Array.from(rawNodes).filter((n) => {
+    if (!n) return false;
+    if (
+      n.matches(
+        ".hero, .hero-container, .hero-visual, #hero-visual, #portrait-card, .portrait-card, .portrait-visual-frame, .portrait-img, [data-photo]"
+      )
+    ) {
+      return false;
+    }
+    if (
+      n.closest(
+        ".hero-visual, #hero-visual, #portrait-card, .portrait-card, .portrait-visual-frame, [data-photo]"
+      )
+    ) {
+      return false;
+    }
+    return true;
+  });
+
+  const vh = window.innerHeight;
+  const toAnimate = [];
+
+  // Filter out elements already visible above the fold on initial load
+  // Above-the-fold content renders immediately without any animation or translate delay!
+  validNodes.forEach((node) => {
+    const rect = node.getBoundingClientRect();
+    if (rect.top < vh * 0.92 && rect.bottom > 0) {
+      // Already in viewport: remain in natural resting position
+      node.classList.add("is-settled");
+      return;
+    }
+    toAnimate.push(node);
+  });
+
+  if (toAnimate.length === 0) return;
+
+  // Mark elements for slide reveal
+  toAnimate.forEach((node) => {
+    node.classList.add("reveal");
+  });
+
+  let staggerCounter = 0;
+  let lastFrameTime = 0;
+
+  function revealElement(target, isInstant = false) {
+    if (target.classList.contains("is-settled")) return;
+
+    if (isInstant) {
+      target.classList.add("is-revealed", "is-settled");
+      target.style.willChange = "auto";
+      target.style.transitionDelay = "";
+      target.style.transform = "none";
+      target.style.transition = "none";
+      return;
+    }
+
+    const now = performance.now();
+    if (now - lastFrameTime > 150) {
+      staggerCounter = 0;
+    }
+    lastFrameTime = now;
+
+    const delay = Math.min(staggerCounter * 45, 120);
+    staggerCounter++;
+
+    target.style.willChange = "transform";
+    if (delay > 0) {
+      target.style.transitionDelay = `${delay}ms`;
+    }
+
+    target.classList.add("is-revealed");
+
+    const cleanup = () => {
+      target.removeEventListener("transitionend", cleanup);
+      target.classList.add("is-settled");
+      target.style.willChange = "auto";
+      target.style.transitionDelay = "";
+      target.style.transform = "none";
+      target.style.transition = "none";
+    };
+
+    target.addEventListener("transitionend", cleanup, { once: true });
+    setTimeout(cleanup, 550 + delay);
   }
 
   const io = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
+        const target = entry.target;
+        if (target.classList.contains("is-settled")) {
+          io.unobserve(target);
+          return;
+        }
+
+        // If currently entering viewport
         if (entry.isIntersecting) {
-          entry.target.classList.add("is-revealed");
-          io.unobserve(entry.target);
+          io.unobserve(target);
+          revealElement(target, false);
+        } else if (entry.boundingClientRect.top < window.innerHeight) {
+          // Already passed above the viewport on fast scroll: settle instantly!
+          io.unobserve(target);
+          revealElement(target, true);
         }
       });
     },
-    { threshold: 0.08, rootMargin: "0px 0px -40px 0px" }
+    {
+      rootMargin: "0px 0px -5% 0px",
+      threshold: 0.05
+    }
   );
 
-  nodes.forEach((n) => {
-    n.classList.add("reveal");
-    io.observe(n);
-  });
+  toAnimate.forEach((node) => io.observe(node));
+
+  // Fast scroll & jump-to-section rAF watchdog
+  let ticking = false;
+  const onScrollSweep = () => {
+    const currentH = window.innerHeight;
+    toAnimate.forEach((node) => {
+      if (!node.classList.contains("is-settled")) {
+        const r = node.getBoundingClientRect();
+        if (r.top < currentH) {
+          io.unobserve(node);
+          if (r.bottom < 0) {
+            revealElement(node, true);
+          } else {
+            revealElement(node, false);
+          }
+        }
+      }
+    });
+  };
+
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          onScrollSweep();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    },
+    { passive: true }
+  );
+
+  // Master safety timeout: after 2.5 seconds, all elements are guaranteed 100% settled
+  setTimeout(() => {
+    toAnimate.forEach((node) => {
+      if (!node.classList.contains("is-settled")) {
+        revealElement(node, true);
+        io.unobserve(node);
+      }
+    });
+  }, 2500);
 }
 
 export { initTypewriter, initReveal, initBackgroundSystem };
-
-

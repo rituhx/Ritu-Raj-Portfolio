@@ -21,10 +21,16 @@ function photoAlt(photo) {
 
 function cardMarkup(photo, featured) {
   return `
-    <button type="button" class="grad-item" data-grad-id="${photo.id}" aria-label="Open ${escapeHtml(photo.title)}">
-      <img src="${escapeHtml(photo.image)}" alt="${escapeHtml(photoAlt(photo))}" width="${featured ? 1200 : 720}" height="${featured ? 720 : 480}" loading="lazy">
+    <button type="button" class="grad-item ${featured ? "grad-item-featured" : ""}" data-grad-id="${photo.id}" aria-label="Open ${escapeHtml(photo.title)}">
+      <img src="${escapeHtml(photo.image)}" alt="${escapeHtml(photoAlt(photo))}" width="${featured ? 1200 : 720}" height="${featured ? 720 : 480}" loading="lazy" decoding="async">
       <span class="grad-overlay" aria-hidden="true"></span>
-      <span class="grad-caption">${escapeHtml(photo.title)}</span>
+      <span class="grad-badge-expand" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+      </span>
+      <div class="grad-content">
+        ${featured ? '<span class="grad-pill">Featured Moment</span>' : ""}
+        <span class="grad-caption">${escapeHtml(photo.title)}</span>
+      </div>
     </button>`;
 }
 
@@ -61,7 +67,7 @@ function ensureLightbox() {
     .map(
       (photo) => `
       <button type="button" class="grad-thumb" role="listitem" data-grad-thumb="${photo.id}" aria-label="${escapeHtml(photo.title)}">
-        <img src="${escapeHtml(photo.image)}" alt="" loading="lazy" width="96" height="72">
+        <img src="${escapeHtml(photo.image)}" alt="" loading="lazy" decoding="async" width="96" height="72">
       </button>`
     )
     .join("");
@@ -111,7 +117,7 @@ function showLightboxImage() {
   img.alt = photoAlt(photo);
   lightboxEl.querySelector("#grad-lightbox-title").textContent = photo.title;
   lightboxEl.querySelector("#grad-lightbox-counter").textContent =
-    lightboxIndex + 1 + " / " + graduationPhotos.length;
+    "Moment " + (lightboxIndex + 1) + " of " + graduationPhotos.length;
   lightboxEl.querySelectorAll("[data-grad-thumb]").forEach((btn, i) => {
     btn.classList.toggle("is-active", i === lightboxIndex);
   });
@@ -159,7 +165,7 @@ function initGraduation() {
   const featuredMount = document.getElementById("grad-featured");
   if (featuredMount) {
     featuredMount.innerHTML = graduationPhotos
-      .slice(0, FEATURED_COUNT)
+      .slice(0, 5)
       .map((photo, i) => cardMarkup(photo, i === 0))
       .join("");
     featuredMount.addEventListener("click", (event) => {

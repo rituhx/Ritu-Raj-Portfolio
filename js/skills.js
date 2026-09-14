@@ -432,6 +432,8 @@ function renderCertifications(root = document) {
                     graduation.title ||
                     "Graduation Degree"
                   }"
+                  loading="lazy"
+                  decoding="async"
                 >
 
               </div>
@@ -554,6 +556,7 @@ function renderCertifications(root = document) {
                         certificate.name || "Certificate"
                       }"
                       loading="lazy"
+                      decoding="async"
                     >
 
                   </div>

@@ -1,91 +1,17 @@
 <!-- =====================================================
-     HERO SECTION (CINEMATIC DIGITAL POSTER)
+     HERO SECTION (SENIOR SOFTWARE ENGINEER)
 ====================================================== -->
 
 <section class="hero" id="home">
 
-  <!-- Layer 1: Ambient Background & Glow -->
-  <div class="hero-bg-glow" aria-hidden="true"></div>
-  <div class="hero-grid-lines" aria-hidden="true"></div>
-
-  <!-- Layer 2: Center-Right Giant 360° Rotating Portrait (78-88vh) -->
-  <div class="hero-visual" id="hero-visual">
-    <!-- Ambient Glow Behind Portrait -->
-    <div class="hero-ambient-glow" aria-hidden="true"></div>
-
-    <!-- Portrait Container & 3D Stage -->
-    <div class="hero-portrait-stage" id="hero-portrait-stage">
-      <div class="portrait-parallax" id="portrait-parallax">
-        <div class="portrait-depth">
-          <!-- 360° Continuous 3D Holographic Turntable -->
-          <div class="portrait-turntable" id="portrait-turntable">
-            <figure class="hero-frame" id="hero-frame">
-              
-              <!-- Front Face (0deg: Full crisp portrait cutout) -->
-              <div class="portrait-face portrait-front">
-                <img
-                  id="floating-project-btn"
-                  data-photo
-                  alt="Portrait of Ritu Raj"
-                  width="620"
-                  height="780"
-                  role="button"
-                  tabindex="0"
-                  aria-label="View latest work demo video"
-                >
-                <div class="hero-portrait-blend" aria-hidden="true"></div>
-              </div>
-
-              <!-- Volumetric Depth & Rim Lighting Core (Prevents paper-thin collapse at 90°/270°) -->
-              <div class="portrait-depth-layer" aria-hidden="true">
-                <div class="depth-plane depth-plane-left"></div>
-                <div class="depth-plane depth-plane-right"></div>
-                <div class="depth-core-glow"></div>
-              </div>
-
-              <!-- Back Face (180deg: Dark Cyber Holographic Silhouette & Laser Mesh) -->
-              <div class="portrait-face portrait-back" aria-hidden="true">
-                <img
-                  data-photo-back
-                  alt="Portrait of Ritu Raj (Holographic depth silhouette)"
-                  width="620"
-                  height="780"
-                >
-                <div class="portrait-hologram-grid"></div>
-                <div class="portrait-laser-scan"></div>
-                <div class="hero-portrait-blend" aria-hidden="true"></div>
-              </div>
-
-              <!-- 3D Edge Rim Lighting Layer -->
-              <div class="portrait-3d-edge-rim" aria-hidden="true"></div>
-
-            </figure>
-          </div>
-        </div>
-      </div>
-
-      <!-- Floating Interactive Latest Work Pill (Floats in Foreground at z: 45px) -->
-      <button type="button" class="hero-latest-work-trigger" id="hero-latest-work-trigger" aria-label="Play latest work video demo">
-        <span class="trigger-play-icon">
-          <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" aria-hidden="true">
-            <polygon points="5 3 19 12 5 21 5 3"></polygon>
-          </svg>
-        </span>
-        <span class="trigger-label">Latest Work</span>
-        <span class="trigger-hint">Watch Demo</span>
-      </button>
-    </div>
-  </div>
-
-  <!-- Layer 3: Left / Center-Left Dominant Editorial Typography -->
   <div class="container hero-container">
+
+    <!-- LEFT: Editorial Developer Presentation -->
     <div class="hero-copy">
 
-      <!-- Availability Indicator -->
+      <!-- Status Indicator -->
       <div class="hero-status">
-        <span class="hero-status-dot">
-          <span class="hero-status-ping"></span>
-        </span>
+        <span class="hero-status-dot"></span>
         <span>Available for software engineering opportunities</span>
       </div>
 
@@ -95,7 +21,7 @@
       </h1>
 
       <!-- Role & Tagline -->
-      <div class="hero-role-badge">
+      <div class="hero-role-wrapper">
         <span class="hero-role" data-field="role">Software Engineer</span>
       </div>
 
@@ -105,13 +31,13 @@
 
       <!-- Concise Statement -->
       <p class="hero-desc" data-field="headline">
-        Building full-stack applications, intelligent systems, AI/ML solutions and real-time software experiences.
+        Computer Science graduate building practical full-stack applications, Android systems, and real-time cloud-based software solutions.
       </p>
 
       <!-- Primary Action Buttons -->
       <div class="hero-actions">
         <a class="btn btn-primary hero-btn-projects" href="#projects">
-          <span>View Projects</span>
+          <span>View Selected Work</span>
           <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <line x1="5" y1="12" x2="19" y2="12"></line>
             <polyline points="12 5 19 12 12 19"></polyline>
@@ -128,7 +54,7 @@
         </a>
       </div>
 
-      <!-- Social Channels -->
+      <!-- Direct Social Channels -->
       <div class="hero-social">
         <a data-github target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
           <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
@@ -166,14 +92,52 @@
       </div>
 
     </div>
+
+    <!-- RIGHT: Clean, Balanced, Strictly Static Profile Portrait -->
+    <div class="hero-visual" id="hero-visual">
+      <div class="portrait-card" id="portrait-card">
+        
+        <div class="portrait-header-bar">
+          <span class="portrait-meta-label">ENGINEER // PROFILE</span>
+          <span class="portrait-status-badge">ACTIVE</span>
+        </div>
+
+        <div class="portrait-visual-frame" id="portrait-visual">
+          <img
+            class="portrait-img"
+            src="assets/images/ritu-avatar.png"
+            data-photo
+            alt="Portrait of Ritu Raj"
+            width="540"
+            height="640"
+            fetchpriority="high"
+            loading="eager"
+            decoding="async"
+          >
+        </div>
+
+        <div class="portrait-footer-bar">
+          <div class="portrait-id-tag">
+            <span class="mono-label">IDENTITY</span>
+            <strong>Ritu Raj</strong>
+          </div>
+          <div class="portrait-spec-tag">
+            <span class="mono-label">DOMAIN</span>
+            <span>Full-Stack &amp; Android</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
   </div>
 
-  <!-- Scroll Indicator -->
+  <!-- Minimal Scroll Indicator -->
   <a class="hero-scroll" href="#about" aria-label="Scroll to About section">
-    <div class="mouse-scroll" aria-hidden="true">
-      <span class="mouse-wheel"></span>
-    </div>
-    <span class="hero-scroll-label">Scroll</span>
+    <span class="hero-scroll-mouse" aria-hidden="true">
+      <span class="hero-scroll-dot"></span>
+    </span>
+    <span class="hero-scroll-text">EXPLORE</span>
   </a>
 
 </section>

@@ -1,15 +1,15 @@
-import { initReveal, initBackgroundSystem } from "./animations.js";
+import { initReveal, initBackgroundSystem } from "./animations.js?v=4";
 import { initContact } from "./contact.js";
-import { initGraduation } from "./graduation.js";
+import { initGraduation } from "./graduation.js?v=3";
 import { initLifeVideo } from "./life-video.js";
 import { initNavigation } from "./navigation.js";
-import { initHeroMotion } from "./hero-motion.js";
+import { initHeroMotion } from "./hero-motion.js?v=4";
 
 /* NEW PROJECT FLOATING BUBBLE */
 import { initFloatingProject } from "./floating-project.js";
 
 import { applyProfile } from "./profile.js";
-import { renderProjects } from "./projects.js";
+import { renderProjects } from "./projects.js?v=3";
 
 import {
   renderAbout,
@@ -56,6 +56,11 @@ async function loadPartials() {
         return;
       }
 
+      // Fast render optimization: if already pre-rendered in HTML, skip network fetch!
+      if (host.children.length > 0) {
+        return;
+      }
+
       try {
 
         const res = await fetch(path);
@@ -89,67 +94,35 @@ async function loadPartials() {
 ========================================================= */
 
 function initTheme() {
-
   const key = "portfolio-theme";
-
-  const btn = document.getElementById("theme-toggle");
-
+  const btns = document.querySelectorAll(".theme-toggle");
 
   function apply(theme) {
-
-    const selectedTheme =
-      theme === "light"
-        ? "light"
-        : "dark";
-
-
-    document.documentElement.setAttribute(
-      "data-theme",
-      selectedTheme
-    );
-
-
-    localStorage.setItem(
-      key,
-      selectedTheme
-    );
-
+    const selectedTheme = theme === "dark" ? "dark" : "yellow";
+    document.documentElement.setAttribute("data-theme", selectedTheme);
+    localStorage.setItem(key, selectedTheme);
+    btns.forEach((btn) => {
+      const isDark = selectedTheme === "dark";
+      btn.setAttribute("aria-label", isDark ? "Switch to Day Mode" : "Switch to Night Mode");
+      btn.setAttribute("title", isDark ? "Switch to Day Mode" : "Switch to Night Mode");
+    });
   }
-
 
   const urlParams = new URLSearchParams(window.location.search);
   const themeFromUrl = urlParams.get("theme");
-  if (themeFromUrl === "light" || themeFromUrl === "dark") {
-    apply(themeFromUrl);
+  if (themeFromUrl === "dark" || themeFromUrl === "yellow" || themeFromUrl === "light") {
+    apply(themeFromUrl === "dark" ? "dark" : "yellow");
   } else {
-    apply(
-      localStorage.getItem(key) || "dark"
-    );
+    apply(localStorage.getItem(key) || "yellow");
   }
 
-
-  if (btn) {
-
+  btns.forEach((btn) => {
     btn.addEventListener("click", () => {
-
-      const currentTheme =
-        document.documentElement.getAttribute(
-          "data-theme"
-        );
-
-
-      const nextTheme =
-        currentTheme === "light"
-          ? "dark"
-          : "light";
-
-
+      const currentTheme = document.documentElement.getAttribute("data-theme");
+      const nextTheme = currentTheme === "dark" ? "yellow" : "dark";
       apply(nextTheme);
-
     });
-
-  }
-
+  });
 }
 
 
@@ -186,6 +159,13 @@ async function boot() {
   ===================================================== */
 
   await loadPartials();
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const scrollParam = urlParams.get("scroll");
+  if (scrollParam !== null) {
+    const s = parseFloat(scrollParam) || 0;
+    window.scrollTo(0, s);
+  }
 
 
   /* =====================================================

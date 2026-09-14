@@ -1,11 +1,45 @@
 /* =========================================================
-   SELECTED ENGINEERING WORK (CASE STUDIES)
+   PROJECTS SECTION (LIGHT EDITORIAL ARCHITECTURAL STYLE)
+   - Warm light background (#FAF8F3 in light mode)
+   - Dark ink / obsidian typography for maximum contrast
+   - Warm yellow (#F4C430) as precise technical accent
+   - 1 Featured Project (2-column on desktop) + 4 Supporting Projects (2x2 grid)
+   - Real engineering schematics (NO fake cyberpunk HUD numbers)
 ========================================================= */
 
 .projects-section {
   position: relative;
+  background: var(--bg-projects);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.3s var(--ease);
 }
 
+.projects-section .section-title {
+  color: var(--text);
+}
+
+.projects-section .section-title span {
+  color: var(--text);
+  border-bottom: 3px solid var(--brand-yellow);
+}
+
+.projects-section .section-lead {
+  color: var(--text-secondary);
+}
+
+.projects-section .section-kicker {
+  background: rgba(17, 17, 20, 0.05);
+  color: var(--text-secondary);
+  border-color: var(--border-subtle);
+}
+
+[data-theme="dark"] .projects-section .section-kicker {
+  background: rgba(244, 196, 48, 0.1);
+  color: var(--brand-yellow);
+  border-color: rgba(244, 196, 48, 0.25);
+}
+
+/* Master Grid Wrapper */
 .projects-grid {
   display: flex;
   flex-direction: column;
@@ -14,105 +48,157 @@
 
 /* Base Project Card */
 .project-card {
-  display: grid;
-  grid-template-columns: minmax(340px, 1.2fr) minmax(0, 1fr);
-  gap: 2.5rem;
-  align-items: center;
-  padding: 2.75rem;
+  display: flex;
+  flex-direction: column;
   background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-xl);
-  position: relative;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-lg);
   overflow: hidden;
-  transition:
-    transform 0.35s var(--ease),
-    border-color 0.35s var(--ease),
-    box-shadow 0.35s var(--ease),
-    background 0.35s var(--ease);
+  box-shadow: var(--shadow-card);
+  transition: transform 0.22s var(--ease), border-color 0.22s var(--ease), box-shadow 0.22s var(--ease);
 }
 
 .project-card:hover {
-  transform: translateY(-5px);
-  border-color: var(--border-accent);
-  background: var(--surface-hover);
-  box-shadow:
-    0 30px 70px -15px rgba(0, 0, 0, 0.85),
-    0 0 35px rgba(56, 189, 248, 0.15);
-}
-
-/* Alternating Layout */
-.project-card.project-index-1 {
-  grid-template-columns: minmax(0, 1fr) minmax(340px, 1.2fr);
-}
-
-.project-card.project-index-1 .project-media-col {
-  order: 2;
-}
-
-.project-card.project-index-1 .project-content-col {
-  order: 1;
-}
-
-/* Featured Project Accent */
-.project-card.is-featured-project {
-  border-color: var(--border-accent);
-  background: linear-gradient(145deg, rgba(16, 21, 32, 0.95) 0%, rgba(13, 17, 28, 0.98) 100%);
-  box-shadow:
-    0 25px 60px -15px rgba(0, 0, 0, 0.8),
-    0 0 30px rgba(59, 130, 246, 0.15);
-}
-
-.project-card.is-featured-project::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: var(--gradient-accent);
+  transform: translateY(-3px);
+  border-color: var(--brand-yellow);
+  box-shadow: var(--shadow-elevated);
 }
 
 /* =========================================================
-   PROJECT ART CANVAS & PROCEDURAL VISUALS
+   FEATURED PROJECT (2-COLUMN ARCHITECTURAL HERO CARD)
 ========================================================= */
 
-.project-media-col {
-  position: relative;
-  width: 100%;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
+.project-card.project-card--featured {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1.25fr);
+  border: 1.5px solid var(--border-strong);
+  box-shadow: var(--shadow-elevated);
 }
 
+.project-card.project-card--featured .project-media-wrapper {
+  height: 100%;
+  min-height: 380px;
+  border-bottom: none;
+  border-right: 1.5px solid var(--border);
+}
+
+.project-card.project-card--featured .art-svg-graphic {
+  height: 210px;
+  max-width: 440px;
+  margin: auto;
+}
+
+.project-card-meta-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.85rem;
+}
+
+.featured-project-badge {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  color: #B45309;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-xs);
+  background: rgba(244, 196, 48, 0.22);
+  border: 1px solid rgba(180, 83, 9, 0.28);
+}
+
+[data-theme="dark"] .featured-project-badge {
+  color: var(--brand-yellow);
+  background: rgba(244, 196, 48, 0.12);
+  border-color: rgba(244, 196, 48, 0.28);
+}
+
+/* Problem & Solution Callouts */
+.project-problem-solution {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin: 1.25rem 0;
+  padding: 1rem 1.15rem;
+  background: rgba(17, 17, 20, 0.035);
+  border-left: 3px solid var(--brand-yellow);
+  border-radius: 0 var(--radius-xs) var(--radius-xs) 0;
+}
+
+[data-theme="dark"] .project-problem-solution {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.ps-item {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.ps-label {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--text);
+  margin-right: 0.45rem;
+}
+
+[data-theme="dark"] .ps-label {
+  color: var(--brand-yellow);
+}
+
+/* =========================================================
+   REGULAR 2x2 PROJECT SUBGRID
+========================================================= */
+
+.projects-subgrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.75rem;
+}
+
+/* Media Area */
+.project-media-wrapper {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  background: #F7F5EE;
+  border-bottom: 1.5px solid var(--border);
+}
+
+[data-theme="dark"] .project-media-wrapper {
+  background: #111218;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.project-media-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Clean Engineering Schematic Container */
 .project-art-canvas {
   position: relative;
   width: 100%;
-  min-height: 250px;
-  aspect-ratio: 16 / 10;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 1.25rem;
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--border);
-  background:
-    radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.08) 0%, transparent 70%),
-    linear-gradient(165deg, #0f1422 0%, #080c14 100%);
-  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.5);
+  padding: 0.95rem 1.25rem;
   overflow: hidden;
+  background-image: radial-gradient(rgba(17, 17, 20, 0.08) 1.2px, transparent 1.2px);
+  background-size: 16px 16px;
 }
 
-.project-art-canvas::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 24px 24px;
-  pointer-events: none;
+[data-theme="dark"] .project-art-canvas {
+  background-image: radial-gradient(rgba(244, 196, 48, 0.12) 1.2px, transparent 1.2px);
 }
 
-.art-hud-header {
+.art-schematic-header {
   position: relative;
   z-index: 2;
   display: flex;
@@ -121,243 +207,191 @@
   width: 100%;
 }
 
-.art-tag {
-  font-family: var(--mono);
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  color: var(--accent-cyan-light);
-  padding: 0.25rem 0.55rem;
-  border-radius: 4px;
-  background: rgba(56, 189, 248, 0.1);
-  border: 1px solid rgba(56, 189, 248, 0.2);
-}
-
-.art-status {
+.schematic-label {
   font-family: var(--mono);
   font-size: 0.65rem;
+  font-weight: 750;
   letter-spacing: 0.08em;
-  color: #34d399;
+  color: #111114;
+  padding: 0.22rem 0.55rem;
+  border-radius: 4px;
+  background: rgba(244, 196, 48, 0.28);
+  border: 1px solid rgba(180, 83, 9, 0.32);
+}
+
+[data-theme="dark"] .schematic-label {
+  color: var(--brand-yellow);
+  background: rgba(244, 196, 48, 0.12);
+  border-color: rgba(244, 196, 48, 0.25);
+}
+
+.schematic-tech {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--text-secondary);
 }
 
 .art-svg-graphic {
   position: relative;
   z-index: 1;
   width: 100%;
-  height: 100%;
+  height: 125px;
+  max-width: 360px;
   display: block;
+  margin: auto;
 }
 
-/* Domain-specific Art Colors */
-.project-art--vision {
-  background:
-    radial-gradient(circle at 20% 30%, rgba(56, 189, 248, 0.12) 0%, transparent 60%),
-    linear-gradient(165deg, #0e1626 0%, #060a12 100%);
-}
-
-.project-art--biometric {
-  background:
-    radial-gradient(circle at 70% 30%, rgba(99, 102, 241, 0.14) 0%, transparent 60%),
-    linear-gradient(165deg, #131428 0%, #080914 100%);
-}
-
-.project-art--telemetry {
-  background:
-    radial-gradient(circle at 50% 50%, rgba(20, 184, 166, 0.12) 0%, transparent 60%),
-    linear-gradient(165deg, #0c1c1a 0%, #050e0d 100%);
-}
-
-.project-art--emotion {
-  background:
-    radial-gradient(circle at 60% 40%, rgba(192, 132, 252, 0.14) 0%, transparent 60%),
-    linear-gradient(165deg, #181128 0%, #0b0714 100%);
-}
-
-.project-art--motion {
-  background:
-    radial-gradient(circle at 40% 60%, rgba(59, 130, 246, 0.12) 0%, transparent 60%),
-    linear-gradient(165deg, #0f172a 0%, #060b14 100%);
-}
-
-/* =========================================================
-   PROJECT CONTENT COLUMN
-========================================================= */
-
-.project-content-col {
+/* Card Body */
+.project-card-body {
+  padding: 1.85rem;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  flex: 1;
 }
 
-.project-header {
+.project-card-header {
   display: flex;
-  align-items: center;
-  gap: 0.75rem;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
 }
 
-.project-number-badge {
-  font-family: var(--mono);
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  color: var(--accent-cyan-light);
-}
-
-.project-featured-badge {
-  font-family: var(--mono);
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  padding: 0.15rem 0.5rem;
-  border-radius: var(--radius-full);
-  background: rgba(59, 130, 246, 0.18);
-  border: 1px solid rgba(59, 130, 246, 0.4);
-  color: #93c5fd;
-}
-
-.project-heading {
+.project-card-title {
   font-family: var(--font-display);
-  font-size: clamp(1.4rem, 2.2vw, 1.8rem);
-  font-weight: 700;
-  letter-spacing: -0.03em;
+  font-size: 1.25rem;
+  font-weight: 750;
+  letter-spacing: -0.02em;
   color: var(--text);
   margin: 0;
+  line-height: 1.28;
 }
 
-.project-description {
-  color: var(--text-muted);
-  font-size: 1rem;
-  line-height: 1.7;
-  margin: 0;
+.project-action-icons {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  flex-shrink: 0;
 }
 
-/* Case Study Challenge / Architecture breakdown */
-.project-case-study {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  padding: 1rem;
-  border-radius: var(--radius-sm);
-  background: rgba(255, 255, 255, 0.02);
+.project-action-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-xs);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  background: rgba(17, 17, 20, 0.05);
   border: 1px solid var(--border);
-  margin: 0.25rem 0;
+  transition: transform 0.18s var(--ease), color 0.18s var(--ease), background 0.18s var(--ease), border-color 0.18s var(--ease);
 }
 
-.case-study-label {
-  display: block;
-  font-family: var(--mono);
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  color: var(--accent-cyan-light);
-  margin-bottom: 0.25rem;
+.project-action-icon:hover {
+  transform: translateY(-2px);
+  color: var(--text-inverse);
+  background: var(--accent);
+  border-color: var(--accent);
 }
 
-.case-study-item p {
-  color: var(--text-muted);
-  font-size: 0.88rem;
-  line-height: 1.55;
-  margin: 0;
+[data-theme="dark"] .project-action-icon {
+  color: #CBD5E1;
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
 }
 
-.project-tech-stack {
+[data-theme="dark"] .project-action-icon:hover {
+  color: #111114;
+  background: var(--brand-yellow);
+  border-color: var(--brand-yellow);
+}
+
+.project-card-desc {
+  color: var(--text-secondary);
+  font-size: 0.93rem;
+  line-height: 1.68;
+  margin: 0 0 1.5rem;
+  flex: 1;
+}
+
+/* Tech Badges */
+.project-card-footer {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.project-tech-badges {
   display: flex;
   flex-wrap: wrap;
   gap: 0.45rem;
-  margin: 0.35rem 0;
 }
 
-.project-links {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-  margin-top: 0.5rem;
+.project-tech-badges .badge {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 0.25rem 0.55rem;
+  border-radius: 4px;
+  background: rgba(244, 196, 48, 0.15);
+  color: var(--text);
+  border: 1px solid rgba(180, 83, 9, 0.22);
 }
 
-/* =========================================================
-   RESPONSIVE BREAKPOINTS
-========================================================= */
-
-@media (max-width: 960px) {
-  .project-card,
-  .project-card.project-index-1 {
-    grid-template-columns: 1fr;
-    gap: 1.75rem;
-    padding: 1.75rem;
-  }
-
-  .project-card.project-index-1 .project-media-col {
-    order: 1;
-  }
-
-  .project-card.project-index-1 .project-content-col {
-    order: 2;
-  }
-
-  .project-case-study {
-    grid-template-columns: 1fr;
-    gap: 0.75rem;
-  }
+[data-theme="dark"] .project-tech-badges .badge {
+  background: rgba(244, 196, 48, 0.1);
+  color: #FDE68A;
+  border-color: rgba(244, 196, 48, 0.25);
 }
 
 /* =========================================================
-   LIGHT THEME PROJECTS OVERRIDES (PREMIUM SKY DAY CANVAS)
+   RESPONSIVE (SINGLE-COLUMN ON MOBILE & TABLET)
 ========================================================= */
 
-[data-theme="light"] .project-card {
-  background: rgba(255, 255, 255, 0.72);
-  border-color: rgba(80, 140, 190, 0.16);
-  box-shadow: 0 18px 50px rgba(50, 100, 150, 0.08);
-  backdrop-filter: blur(14px);
+@media (max-width: 1024px) {
+  .project-card.project-card--featured {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card.project-card--featured .project-media-wrapper {
+    height: 210px;
+    min-height: unset;
+    border-right: none;
+    border-bottom: 1.5px solid var(--border);
+  }
+
+  .project-card.project-card--featured .art-svg-graphic {
+    height: 135px;
+  }
+
+  .projects-subgrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
 }
 
-[data-theme="light"] .project-card:hover {
-  background: rgba(255, 255, 255, 0.9);
-  border-color: rgba(22, 135, 232, 0.35);
-  box-shadow: 0 24px 60px rgba(40, 90, 140, 0.14);
+@media (max-width: 640px) {
+  .project-card-body {
+    padding: 1.4rem 1.25rem;
+  }
+
+  .project-card-title {
+    font-size: 1.15rem;
+  }
+
+  .project-media-wrapper {
+    height: 160px;
+  }
+
+  .project-tech-badges {
+    gap: 0.35rem;
+  }
+
+  .project-tech-badges .badge {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+  }
 }
-
-[data-theme="light"] .project-card.is-featured-project {
-  background: rgba(255, 255, 255, 0.82);
-  border-color: rgba(22, 135, 232, 0.3);
-  box-shadow: 0 20px 55px rgba(50, 100, 150, 0.1);
-}
-
-[data-theme="light"] .project-art-canvas {
-  background: rgba(234, 244, 255, 0.85);
-  border-color: rgba(80, 140, 190, 0.18);
-}
-
-[data-theme="light"] .project-number-badge {
-  color: var(--accent);
-}
-
-[data-theme="light"] .project-featured-badge {
-  background: rgba(22, 135, 232, 0.08);
-  border-color: rgba(22, 135, 232, 0.22);
-  color: var(--accent);
-}
-
-[data-theme="light"] .project-heading {
-  color: #0B1630;
-}
-
-[data-theme="light"] .project-description {
-  color: #52657D;
-}
-
-[data-theme="light"] .case-study-item {
-  background: rgba(234, 244, 255, 0.6);
-  border-color: rgba(80, 140, 190, 0.16);
-}
-
-[data-theme="light"] .case-study-label {
-  color: #1687E8;
-}
-
-[data-theme="light"] .case-study-item p {
-  color: #52657D;
-}
-
-

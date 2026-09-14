@@ -1,3 +1,9 @@
+/* =========================================================
+   PROJECT DEMO MODAL CONTROLLER
+   - Dedicated triggers only (e.g. [data-open-project-demo])
+   - STRICT RULE: Profile photo must NEVER trigger the video modal
+========================================================= */
+
 export function initFloatingProject() {
   const modal = document.getElementById("project-modal");
   const closeButton = document.getElementById("project-modal-close");
@@ -5,7 +11,6 @@ export function initFloatingProject() {
   const video = document.getElementById("company-project-video");
 
   if (!modal || !closeButton || !backdrop) {
-    console.warn("Floating project modal elements not found.");
     return;
   }
 
@@ -20,7 +25,7 @@ export function initFloatingProject() {
         const playPromise = video.play();
         if (playPromise !== undefined) {
           playPromise.catch((err) => {
-            console.log("Autoplay prevented or interrupted:", err);
+            console.log("Autoplay prevented:", err);
           });
         }
       } catch (err) {
@@ -44,10 +49,8 @@ export function initFloatingProject() {
     }
   }
 
-  // Bind all triggers
-  const triggers = document.querySelectorAll(
-    "#floating-project-btn, #hero-latest-work-trigger, #about-focus-demo-btn, [data-photo], [data-photo-back], .portrait-face, [data-open-project-demo]"
-  );
+  // Bind ONLY dedicated, explicit project demo triggers — NEVER the profile photo
+  const triggers = document.querySelectorAll("[data-open-project-demo]");
 
   triggers.forEach((trigger) => {
     trigger.addEventListener("click", (event) => {
@@ -69,13 +72,4 @@ export function initFloatingProject() {
       closeModal();
     }
   });
-
-  if (video) {
-    video.addEventListener("loadeddata", () => {
-      console.log("Project demo video loaded successfully.");
-    });
-    video.addEventListener("error", () => {
-      console.error("Project demo video failed to load:", video.currentSrc);
-    });
-  }
 }

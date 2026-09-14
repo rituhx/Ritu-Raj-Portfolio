@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="yellow">
 
 <head>
 
@@ -10,21 +10,21 @@
     content="width=device-width, initial-scale=1.0"
   >
 
-  <title>Ritu Raj | Software Engineer</title>
+  <title>Ritu Raj | Senior Software Engineer</title>
 
   <meta
     name="description"
-    content="Ritu Raj — Computer Science graduate, Software Engineer, Full-Stack Developer and AI/ML Enthusiast."
+    content="Ritu Raj — Computer Science Graduate, Software Engineer, Full-Stack Developer and AI/ML Enthusiast."
   >
 
   <meta
     property="og:title"
-    content="Ritu Raj | Software Engineer"
+    content="Ritu Raj | Senior Software Engineer"
   >
 
   <meta
     property="og:description"
-    content="Ritu Raj — Computer Science graduate, Software Engineer, Full-Stack Developer and AI/ML Enthusiast."
+    content="Ritu Raj — Computer Science Graduate, Software Engineer, Full-Stack Developer and AI/ML Enthusiast."
   >
 
   <meta
@@ -45,20 +45,29 @@
 
 
   <!-- =====================================================
-       GOOGLE FONTS (Plus Jakarta Sans, Space Grotesk, JetBrains Mono)
+       GOOGLE FONTS (Space Grotesk, Plus Jakarta Sans, JetBrains Mono)
   ====================================================== -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- =====================================================
-       DEVICON SKILL LOGOS
+       PRELOAD HERO ASSETS (INSTANT FIRST PAINT)
   ====================================================== -->
+  <link rel="preload" href="assets/images/ritu-avatar.png" as="image" fetchpriority="high">
 
+  <!-- =====================================================
+       DEVICON SKILL LOGOS (ASYNC NON-BLOCKING)
+  ====================================================== -->
   <link
-    rel="stylesheet"
+    rel="preload"
     href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+    as="style"
+    onload="this.onload=null;this.rel='stylesheet'"
   >
+  <noscript>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+  </noscript>
 
 
   <!-- =====================================================
@@ -95,7 +104,7 @@
 
 
   <!-- =====================================================
-       FLOATING BRAIN / LATEST WORK
+       LATEST WORK VIDEO MODAL STYLES
   ====================================================== -->
 
   <link
@@ -129,39 +138,10 @@
 
 
   <!-- =====================================================
-       FULL-PAGE CINEMATIC ANIMATED BACKGROUND SYSTEM
+       MINIMAL ARCHITECTURAL BACKGROUND
   ====================================================== -->
   <div class="background-system" id="background-system" aria-hidden="true">
     <div class="bg-layer-deep"></div>
-    <div class="bg-layer-light-fields">
-      <div class="light-orb light-orb-primary"></div>
-      <div class="light-orb light-orb-secondary"></div>
-      <div class="light-orb light-orb-tertiary"></div>
-    </div>
-    <div class="bg-layer-grid"></div>
-    <div class="bg-layer-particles">
-      <canvas id="bg-particle-canvas"></canvas>
-    </div>
-    <div class="bg-layer-cyber-lines">
-      <svg class="cyber-svg-lines" viewBox="0 0 1440 900" fill="none" preserveAspectRatio="none">
-        <defs>
-          <linearGradient id="cyan-beam-grad-1" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#38bdf8" stop-opacity="0" />
-            <stop offset="50%" stop-color="#38bdf8" stop-opacity="0.8" />
-            <stop offset="100%" stop-color="#6366f1" stop-opacity="0" />
-          </linearGradient>
-          <linearGradient id="cyan-beam-grad-2" x1="100%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stop-color="#06b6d4" stop-opacity="0" />
-            <stop offset="50%" stop-color="#38bdf8" stop-opacity="0.7" />
-            <stop offset="100%" stop-color="#3b82f6" stop-opacity="0" />
-          </linearGradient>
-        </defs>
-        <path class="laser-beam-1" d="M -100 150 C 300 80, 800 350, 1540 180" />
-        <path class="laser-beam-2" d="M -100 720 C 450 820, 950 550, 1540 760" />
-        <path class="laser-beam-1" d="M 200 -50 C 400 350, 1100 600, 1300 950" opacity="0.4" />
-      </svg>
-    </div>
-    <div class="bg-layer-vignette"></div>
   </div>
 
 
@@ -169,7 +149,76 @@
        NAVBAR
   ====================================================== -->
 
-  <div id="slot-navbar"></div>
+  <div id="slot-navbar">
+<header class="site-header" id="site-header">
+  <nav class="nav" id="site-nav" aria-label="Main Navigation">
+    <div class="nav-inner">
+      <a class="nav-logo" href="#home" data-bind="logo" aria-label="Ritu Raj - Home">
+        <span class="nav-mark">
+          <span class="nav-mark-text">RR</span>
+          <span class="nav-mark-pulse" aria-hidden="true"></span>
+        </span>
+        <span class="nav-name" data-field="name">Ritu Raj</span>
+      </a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#graduation">Graduation</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li class="nav-theme-item">
+          <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch to Night Mode" title="Switch to Night Mode">
+            <svg class="theme-icon-dark" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"></path>
+              <path d="M9 18h6"></path>
+              <path d="M10 22h4"></path>
+            </svg>
+            <svg class="theme-icon-light" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5Z"></path>
+              <path d="M9 18h6" fill="none"></path>
+              <path d="M10 22h4" fill="none"></path>
+            </svg>
+          </button>
+        </li>
+        <li class="mobile-nav-resume-item">
+          <a class="btn btn-primary nav-mobile-resume" data-resume href="#" download="Ritu_Raj_Resume.png" aria-label="Download Resume">
+            <span>Download Resume</span>
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+          </a>
+        </li>
+      </ul>
+
+      <div class="nav-actions">
+        <button type="button" class="theme-toggle theme-toggle-mobile" id="theme-toggle-mobile" aria-label="Switch to Night Mode" title="Switch to Night Mode">
+          <svg class="theme-icon-dark" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"></path>
+            <path d="M9 18h6"></path>
+            <path d="M10 22h4"></path>
+          </svg>
+          <svg class="theme-icon-light" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5Z"></path>
+            <path d="M9 18h6" fill="none"></path>
+            <path d="M10 22h4" fill="none"></path>
+          </svg>
+        </button>
+
+        <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation menu">
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+</header>
+  </div>
 
 
   <!-- =====================================================
@@ -181,7 +230,147 @@
 
     <!-- HERO -->
 
-    <div id="slot-hero"></div>
+    <div id="slot-hero">
+<section class="hero" id="home">
+
+  <div class="container hero-container">
+
+    <!-- LEFT: Editorial Developer Presentation -->
+    <div class="hero-copy">
+
+      <!-- Status Indicator -->
+      <div class="hero-status">
+        <span class="hero-status-dot"></span>
+        <span>Available for software engineering opportunities</span>
+      </div>
+
+      <!-- Main Heading / Name -->
+      <h1 class="hero-title" data-field="nameCaps">
+        RITU RAJ
+      </h1>
+
+      <!-- Role & Tagline -->
+      <div class="hero-role-wrapper">
+        <span class="hero-role" data-field="role">Software Engineer</span>
+      </div>
+
+      <p class="hero-tag" data-field="tagline">
+        Full-Stack Development · Android Development · Cloud Systems
+      </p>
+
+      <!-- Concise Statement -->
+      <p class="hero-desc" data-field="headline">
+        Computer Science graduate building practical full-stack applications, Android systems, and real-time cloud-based software solutions.
+      </p>
+
+      <!-- Primary Action Buttons -->
+      <div class="hero-actions">
+        <a class="btn btn-primary hero-btn-projects" href="#projects">
+          <span>View Selected Work</span>
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+
+        <a class="btn btn-outline hero-btn-resume" data-resume href="#" download="Ritu_Raj_Resume.png">
+          <span>Download Resume</span>
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Direct Social Channels -->
+      <div class="hero-social">
+        <a data-github target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
+            <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path>
+          </svg>
+          <span>GitHub</span>
+        </a>
+
+        <span class="hero-social-sep" aria-hidden="true">/</span>
+
+        <a data-linkedin target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
+            <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"></path>
+          </svg>
+          <span>LinkedIn</span>
+        </a>
+
+        <span class="hero-social-sep" aria-hidden="true">/</span>
+
+        <a data-instagram target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/riturz_/" aria-label="Instagram Profile">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.28-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919C8.333.014 8.741 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"></path>
+          </svg>
+          <span>Instagram</span>
+        </a>
+
+        <span class="hero-social-sep" aria-hidden="true">/</span>
+
+        <a data-email aria-label="Send Email">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
+            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path>
+          </svg>
+          <span>Email</span>
+        </a>
+      </div>
+
+    </div>
+
+    <!-- RIGHT: Clean, Balanced, Strictly Static Profile Portrait -->
+    <div class="hero-visual" id="hero-visual">
+      <div class="portrait-card" id="portrait-card">
+        
+        <div class="portrait-header-bar">
+          <span class="portrait-meta-label">ENGINEER // PROFILE</span>
+          <span class="portrait-status-badge">ACTIVE</span>
+        </div>
+
+        <div class="portrait-visual-frame" id="portrait-visual">
+          <img
+            class="portrait-img"
+            src="assets/images/ritu-avatar.png"
+            data-photo
+            alt="Portrait of Ritu Raj"
+            width="540"
+            height="640"
+            fetchpriority="high"
+            loading="eager"
+            decoding="async"
+          >
+        </div>
+
+        <div class="portrait-footer-bar">
+          <div class="portrait-id-tag">
+            <span class="mono-label">IDENTITY</span>
+            <strong>Ritu Raj</strong>
+          </div>
+          <div class="portrait-spec-tag">
+            <span class="mono-label">DOMAIN</span>
+            <span>Full-Stack &amp; Android</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Minimal Scroll Indicator -->
+  <a class="hero-scroll" href="#about" aria-label="Scroll to About section">
+    <span class="hero-scroll-mouse" aria-hidden="true">
+      <span class="hero-scroll-dot"></span>
+    </span>
+    <span class="hero-scroll-text">EXPLORE</span>
+  </a>
+
+</section>
+    </div>
 
 
     <!-- ABOUT -->
@@ -240,11 +429,7 @@
 
 
   <!-- =====================================================
-       FLOATING BRAIN COMPONENT
-
-       IMPORTANT:
-       This component stays outside <main>
-       so it can move around the entire screen.
+       PROJECT DEMO MODAL COMPONENT (CLEAN VIDEO PLAYER)
   ====================================================== -->
 
   <div id="slot-floating-project"></div>
@@ -256,7 +441,7 @@
 
   <script
     type="module"
-    src="js/main.js"
+    src="js/main.js?v=4"
   ></script>
 
 
